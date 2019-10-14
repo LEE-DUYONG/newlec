@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.newlec.controller.Controller;
+import com.newlec.controller.PageController;
 import com.newlec.controller.TestController;
 
 /**
@@ -40,6 +41,15 @@ public class DispatcherServlet extends HttpServlet {
 			Controller testController = new TestController();
 			try {
 				returnURL = (String) testController.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(requestURI.equals(ctxPath + "/index.yjc")) {
+			System.out.println("index");
+			Controller pageController = new PageController();
+			try {
+				returnURL = (String) pageController.execute(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
