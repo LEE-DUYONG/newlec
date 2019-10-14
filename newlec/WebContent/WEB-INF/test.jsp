@@ -11,7 +11,7 @@
 	Hello world!  
 </h1>
 
-<P>  The time on the server is ${curDate}. </P>
+<P>  The time on the Oracle Server is ${curDate}. </P>
 
 </body>
 </html>
