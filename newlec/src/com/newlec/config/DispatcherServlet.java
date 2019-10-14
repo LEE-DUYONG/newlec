@@ -35,7 +35,7 @@ public class DispatcherServlet extends HttpServlet {
 		
 		String returnURL = null;
 		
-		if(requestURI.equals(ctxPath + "/customer/test")) {
+		if(requestURI.equals(ctxPath + "/test")) {
 			System.out.println("test");
 			Controller testController = new TestController();
 			try {
