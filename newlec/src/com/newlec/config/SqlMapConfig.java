@@ -30,9 +30,3 @@ public class SqlMapConfig {
 	   return sqlsession;
    }
 }
-
-
-
-
-
-
