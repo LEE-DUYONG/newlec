@@ -15,7 +15,7 @@ import com.newlec.controller.TestController;
 /**
  * Servlet implementation class DispatcherServlet
  */
-@WebServlet("/")
+@WebServlet("*.yjc")
 public class DispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -35,7 +35,7 @@ public class DispatcherServlet extends HttpServlet {
 		
 		String returnURL = null;
 		
-		if(requestURI.equals(ctxPath + "/test")) {
+		if(requestURI.equals(ctxPath + "/test.yjc")) {
 			System.out.println("test");
 			Controller testController = new TestController();
 			try {
