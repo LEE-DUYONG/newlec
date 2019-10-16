@@ -10,6 +10,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.newlec.controller.Controller;
+import com.newlec.controller.JoinController;
+import com.newlec.controller.LoginController;
+import com.newlec.controller.NoticeController;
+import com.newlec.controller.NoticeDetailController;
+import com.newlec.controller.NoticeEditController;
+import com.newlec.controller.NoticeRegController;
 import com.newlec.controller.PageController;
 import com.newlec.controller.TestController;
 
@@ -36,7 +42,7 @@ public class DispatcherServlet extends HttpServlet {
 		
 		String returnURL = null;
 		
-		if(requestURI.equals(ctxPath + "/test.yjc")) {
+		if(requestURI.equals(ctxPath + "/test.yjc")) { // 테스트페이지
 			System.out.println("test");
 			Controller testController = new TestController();
 			try {
@@ -45,11 +51,65 @@ public class DispatcherServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else if(requestURI.equals(ctxPath + "/index.yjc")) {
+		} else if(requestURI.equals(ctxPath + "/index.yjc")) { // 메인페이지
 			System.out.println("index");
 			Controller pageController = new PageController();
 			try {
 				returnURL = (String) pageController.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(requestURI.equals(ctxPath + "/join.yjc")) { // 회원가입
+			System.out.println("join");
+			Controller joinController = new JoinController();
+			try {
+				returnURL = (String) joinController.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(requestURI.equals(ctxPath + "/login.yjc")) { // 로그인
+			System.out.println("login");
+			Controller loginController = new LoginController();
+			try {
+				returnURL = (String) loginController.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(requestURI.equals(ctxPath + "/notice.yjc")) { // 게시판 메인
+			System.out.println("notice");
+			Controller noticeController = new NoticeController();
+			try {
+				returnURL = (String) noticeController.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(requestURI.equals(ctxPath + "/noticeDetail.yjc")) { // 게시글 보기
+			System.out.println("noticeDetail");
+			Controller noticeDetailController = new NoticeDetailController();
+			try {
+				returnURL = (String) noticeDetailController.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(requestURI.equals(ctxPath + "/noticeEdit.yjc")) { // 게시글 수정
+			System.out.println("noticeEdit");
+			Controller noticeEditController = new NoticeEditController();
+			try {
+				returnURL = (String) noticeEditController.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(requestURI.equals(ctxPath + "/noticeReg.yjc")) { // 게시글 작성
+			System.out.println("noticeReg");
+			Controller noticeRegController = new NoticeRegController();
+			try {
+				returnURL = (String) noticeRegController.execute(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
