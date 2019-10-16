@@ -1,67 +1,55 @@
 package com.newlec.domain;
 
-import java.util.Date;
-
 public class MemberVO {
 
-	private String seq;
-	private String title;
-	private String writer;
-	private String content;
-	private Date regDate;
-	private int hit;
-
-	public String getSeq() {
-		return seq;
+	private String id;
+	private String password;
+	private String uernName;
+	private char sex;
+	private String phoneNumber;
+	private String email;
+	
+	public String getId() {
+		return id;
 	}
-
-	public void setSeq(String seq) {
-		this.seq = seq;
+	public void setId(String id) {
+		this.id = id;
 	}
-
-	public String getTitle() {
-		return title;
+	public String getPassword() {
+		return password;
 	}
-
-	public void setTitle(String title) {
-		this.title = title;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-
-	public String getWriter() {
-		return writer;
+	public String getUernName() {
+		return uernName;
 	}
-
-	public void setWriter(String writer) {
-		this.writer = writer;
+	public void setUernName(String uernName) {
+		this.uernName = uernName;
 	}
-
-	public String getContent() {
-		return content;
+	public char getSex() {
+		return sex;
 	}
-
-	public void setContent(String content) {
-		this.content = content;
+	public void setSex(char sex) {
+		this.sex = sex;
 	}
-
-	public Date getRegDate() {
-		return regDate;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
-
-	public void setRegDate(Date regDate) {
-		this.regDate = regDate;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
-
-	public int getHit() {
-		return hit;
+	public String getEmail() {
+		return email;
 	}
-
-	public void setHit(int hit) {
-		this.hit = hit;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-
+	
 	@Override
 	public String toString() {
-		return "NoticeVO [seq=" + seq + ", title=" + title + ", writer=" + writer + ", content=" + content
-				+ ", regDate=" + regDate + ", hit=" + hit + "]";
+		return "MemberVO [id=" + id + ", password=" + password + ", uernName=" + uernName + ", sex=" + sex
+				+ ", phoneNumber=" + phoneNumber + ", email=" + email + "]";
 	}
+
 }
