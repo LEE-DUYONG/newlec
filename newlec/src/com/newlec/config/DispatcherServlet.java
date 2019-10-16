@@ -53,9 +53,9 @@ public class DispatcherServlet extends HttpServlet {
 			}
 		} else if(requestURI.equals(ctxPath + "/index.yjc")) { // 메인페이지
 			System.out.println("index");
-			Controller pageController = new IndexController();
+			Controller indexController = new IndexController();
 			try {
-				returnURL = (String) pageController.execute(request, response);
+				returnURL = (String) indexController.execute(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
