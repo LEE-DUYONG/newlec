@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>
-	Hello world !!! 민호 수정함 191016 ㅋㅋ
+	Hello world !!! 민호 수정함 191016 ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ
 </h1>
 
 <P>  The time on the Oracle Server is ${curDate}. </P>
