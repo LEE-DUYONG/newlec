@@ -16,7 +16,7 @@ import com.newlec.controller.NoticeController;
 import com.newlec.controller.NoticeDetailController;
 import com.newlec.controller.NoticeEditController;
 import com.newlec.controller.NoticeRegController;
-import com.newlec.controller.PageController;
+import com.newlec.controller.IndexController;
 import com.newlec.controller.TestController;
 
 /**
@@ -53,7 +53,7 @@ public class DispatcherServlet extends HttpServlet {
 			}
 		} else if(requestURI.equals(ctxPath + "/index.yjc")) { // 메인페이지
 			System.out.println("index");
-			Controller pageController = new PageController();
+			Controller pageController = new IndexController();
 			try {
 				returnURL = (String) pageController.execute(request, response);
 			} catch (Exception e) {
