@@ -20,8 +20,8 @@ public class TestController implements Controller {
 		
 		return "dispatcher:/WEB-INF/test.jsp";
 		
-		// µğ½ºÆĞÃÄ : dispatcher:/customer/notice.jsp
-		// ¸®´ÙÀÌ·ºÆ® : sendRedirect:notice.html
+		// ë””ìŠ¤íŒ¨ì³ : dispatcher:/customer/notice.jsp
+		// ë¦¬ë‹¤ì´ë ‰íŠ¸ : sendRedirect:notice.html
 	}
 
 }
