@@ -12,7 +12,7 @@ public class OracleTestDao implements TestDao {
 	SqlSession sqlsession; 
 	
 	public OracleTestDao() {
-		sqlsession = sessionFactory.openSession(true); //true ·Î ÇÒ½Ã ÀÚµ¿ commit
+		sqlsession = sessionFactory.openSession(true); // sqlSession ì–»ì–´ì˜¤ê¸°
 	}
 	
 	@Override
