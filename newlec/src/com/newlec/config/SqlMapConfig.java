@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class SqlMapConfig {
-    //ÀÛ¼ºÇÑ sqlMapConfig.xml °´Ã¼È­ ÇÏ´Â Å¬·¡½º
+    //SqlSession ìƒì„± íŒ©í† ë¦¬
 	
    private static SqlSessionFactory sqlsession;
    
@@ -22,7 +22,7 @@ public class SqlMapConfig {
 		  
 	  } catch (IOException e) {
 		e.printStackTrace();
-		throw new RuntimeException("ÃÊ±âÈ­ ¿¡·¯: "+ e);
+		throw new RuntimeException("ëŸ°íƒ€ì„ ì—ëŸ¬ : "+ e);
 	  }
    }
    
