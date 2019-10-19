@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import com.newlec.controller.Controller;
 import com.newlec.controller.JoinController;
 import com.newlec.controller.LoginController;
@@ -24,8 +26,9 @@ import com.newlec.controller.TestController;
  */
 @WebServlet("*.yjc")
 public class DispatcherServlet extends HttpServlet {
+	static final Logger log = Logger.getLogger("");
 	private static final long serialVersionUID = 1L;
-
+	
 	/**
 	 * @see HttpServlet#service(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -35,15 +38,15 @@ public class DispatcherServlet extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		
 		String requestURI = request.getRequestURI();
-		System.out.println("requestURI : " + requestURI);
+		log.info("requestURI : " + requestURI);
 		
 		String ctxPath = request.getContextPath();
-		System.out.println("ctxPath : " + ctxPath);
+		log.info("ctxPath : " + ctxPath);
 		
 		String returnURL = null;
 		
 		if(requestURI.equals(ctxPath + "/test.yjc")) { // 테스트페이지
-			System.out.println("test");
+			log.info("test");
 			Controller testController = new TestController();
 			try {
 				returnURL = (String) testController.execute(request, response);
