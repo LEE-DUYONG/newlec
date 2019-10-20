@@ -4,7 +4,7 @@ public class MemberVO {
 
 	private String id;
 	private String password;
-	private String uernName;
+	private String userName;
 	private char sex;
 	private String phoneNumber;
 	private String email;
@@ -21,11 +21,11 @@ public class MemberVO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getUernName() {
-		return uernName;
+	public String getUserName() {
+		return userName;
 	}
-	public void setUernName(String uernName) {
-		this.uernName = uernName;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public char getSex() {
 		return sex;
@@ -45,11 +45,10 @@ public class MemberVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
 	@Override
 	public String toString() {
-		return "MemberVO [id=" + id + ", password=" + password + ", uernName=" + uernName + ", sex=" + sex
+		return "MemberVO [id=" + id + ", password=" + password + ", userName=" + userName + ", sex=" + sex
 				+ ", phoneNumber=" + phoneNumber + ", email=" + email + "]";
 	}
-
+	
 }

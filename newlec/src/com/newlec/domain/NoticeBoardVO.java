@@ -6,10 +6,10 @@ public class NoticeBoardVO {
 	
 	private int num;
 	private String title;
+	private String content;
 	private Date date;
 	private int hit;
 	private String memberId;
-	
 	public int getNum() {
 		return num;
 	}
@@ -21,6 +21,12 @@ public class NoticeBoardVO {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public Date getDate() {
 		return date;
@@ -40,11 +46,10 @@ public class NoticeBoardVO {
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
-	
 	@Override
 	public String toString() {
-		return "NoticeBoardVo [num=" + num + ", title=" + title + ", date=" + date + ", hit=" + hit + ", memberId="
-				+ memberId + "]";
+		return "NoticeBoardVO [num=" + num + ", title=" + title + ", content=" + content + ", date=" + date + ", hit="
+				+ hit + ", memberId=" + memberId + "]";
 	}
 	
 }

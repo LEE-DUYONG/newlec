@@ -1,10 +1,13 @@
 package com.newlec.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.log4j.Logger;
 
 import com.newlec.config.SqlMapConfig;
+import com.newlec.domain.MemberVO;
 
 public class OracleTestDao implements TestDao {
 
@@ -24,4 +27,21 @@ public class OracleTestDao implements TestDao {
 		log.info(result);
 		return result;
 	}
+
+	@Override
+	public void getMemberList() {
+		// TODO Auto-generated method stub
+		List<MemberVO> memberVO = sqlsession.selectList("getListMember");
+		log.info(memberVO);
+	}
+
+	@Override
+	public void insertMember(MemberVO member) {
+		// TODO Auto-generated method stub
+		
+		log.info("★멤버★ : " + member);
+		
+		sqlsession.insert("insertMember", member);
+	}
+	
 }

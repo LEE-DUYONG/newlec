@@ -48,6 +48,7 @@ public class DispatcherServlet extends HttpServlet {
 		if(requestURI.equals(ctxPath + "/test.yjc")) { // 테스트페이지
 			log.info("test");
 			Controller testController = new TestController();
+			
 			try {
 				returnURL = (String) testController.execute(request, response);
 			} catch (Exception e) {
