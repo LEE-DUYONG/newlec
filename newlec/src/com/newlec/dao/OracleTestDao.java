@@ -15,6 +15,8 @@ public class OracleTestDao implements TestDao {
 	SqlSessionFactory sessionFactory = SqlMapConfig.getSqlMapInstance();
 	SqlSession sqlsession; 
 	
+	// 깃허브 테스트
+	
 	public OracleTestDao() {
 		sqlsession = sessionFactory.openSession(true); // sqlSession 얻어오기
 	}
