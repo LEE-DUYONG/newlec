@@ -14,7 +14,7 @@ import org.apache.log4j.Logger;
 import com.newlec.controller.Controller;
 import com.newlec.controller.JoinController;
 import com.newlec.controller.LoginController;
-import com.newlec.controller.NoticeController;
+import com.newlec.controller.NoticeMainController;
 import com.newlec.controller.NoticeDetailController;
 import com.newlec.controller.NoticeEditController;
 import com.newlec.controller.NoticeRegController;
@@ -84,7 +84,7 @@ public class DispatcherServlet extends HttpServlet {
 			}
 		} else if(requestURI.equals(ctxPath + "/notice.yjc")) { // 게시판 메인
 			System.out.println("notice");
-			Controller noticeController = new NoticeController();
+			Controller noticeController = new NoticeMainController();
 			try {
 				returnURL = (String) noticeController.execute(request, response);
 			} catch (Exception e) {
