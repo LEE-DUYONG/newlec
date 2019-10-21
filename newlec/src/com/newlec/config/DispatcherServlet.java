@@ -83,7 +83,7 @@ public class DispatcherServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else if(requestURI.equals(ctxPath + "/notice.yjc")) { // 게시판 메인
-			System.out.println("notice");
+			System.out.println("noticeMain");
 			Controller noticeMainController = new NoticeMainController();
 			try {
 				returnURL = (String) noticeMainController.execute(request, response);
