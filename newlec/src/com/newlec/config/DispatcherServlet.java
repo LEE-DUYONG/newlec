@@ -84,9 +84,9 @@ public class DispatcherServlet extends HttpServlet {
 			}
 		} else if(requestURI.equals(ctxPath + "/notice.yjc")) { // 게시판 메인
 			System.out.println("notice");
-			Controller noticeController = new NoticeMainController();
+			Controller noticeMainController = new NoticeMainController();
 			try {
-				returnURL = (String) noticeController.execute(request, response);
+				returnURL = (String) noticeMainController.execute(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
