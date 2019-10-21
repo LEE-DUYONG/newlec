@@ -16,7 +16,7 @@ public class OracleMemberDao implements MemberDao {
 	SqlSession sqlsession; 							
 								
 	public OracleMemberDao() {							
-		sqlsession = sessionFactory.openSession(true); // sqlSession 얻어오기						
+		sqlsession = sessionFactory.openSession(true); // sqlSession 얻어오기ㅇㅇㅇ				
 	}							
 								
 	@Override							
