@@ -8,7 +8,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getBoardList" resultType="com.newlec.domain.NoticeBoardVO">
 		SELECT NUM, TITLE, CREATED_DATE　"createdDate", HIT, a.id ||'('|| a.username ||')' "memberId"
 		FROM TBL_MEMBER a , TBL_NOTICE_BOARD b
-		where a.id = b.MEMBER_ID order by b.num;
+		where a.id = b.MEMBER_ID order by b.num desc
 	</select>
 
 </mapper>
