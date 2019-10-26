@@ -21,7 +21,7 @@ public class OracleMemberDao implements MemberDao {
 								
 	@Override							
 	public String retrieveDate() throws Exception {							
-		// TODO Auto-generated method stub						
+		// TODO Auto-generated method stub	oko					
 								
 		String result = sqlsession.selectOne("selectDate");						
 		log.info(result);						
