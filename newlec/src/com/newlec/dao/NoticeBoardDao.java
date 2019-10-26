@@ -1,9 +1,8 @@
 package com.newlec.dao;
 
-import com.newlec.domain.MemberVO;
+import com.newlec.domain.NoticeBoardVO;
 
 public interface NoticeBoardDao {
-	String retrieveDate() throws Exception;
-	void getMemberList();
-	void insertMember(MemberVO member);
+	void getBoardList();
+	void insertBoard(NoticeBoardVO noticeBoard);
 }

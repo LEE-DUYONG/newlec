@@ -4,6 +4,8 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
+import com.newlec.dao.NoticeBoardDao;
+import com.newlec.dao.OracleNoticeBoardDao;
 import com.newlec.domain.NoticeBoardVO;
 
 public class NoticeServiceImpl implements NoticeService {
@@ -33,6 +35,11 @@ public class NoticeServiceImpl implements NoticeService {
 		} else {
 			endRow = startRow + 9;
 		}
+		
+		
+		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
+		
+		noticeBoardDao.getBoardList();
 		
 		ArrayList<NoticeBoardVO> noticeList = new ArrayList<NoticeBoardVO>();
 		

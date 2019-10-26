@@ -6,4 +6,6 @@ public interface MemberDao {
 	String retrieveDate() throws Exception;
 	void getMemberList();
 	void insertMember(MemberVO member);
+	
+	
 }
