@@ -22,6 +22,8 @@
     
      <mappers>
           <mapper resource="com/newlec/mapper/OracleTestDao.xml"/>
+          <mapper resource="com/newlec/mapper/OracleMemberDao.xml"/>
+          <mapper resource="com/newlec/mapper/NoticeBoardDao.xml"/>
      </mappers>
   
  </configuration>

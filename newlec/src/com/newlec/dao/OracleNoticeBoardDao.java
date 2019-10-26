@@ -13,13 +13,16 @@ public class OracleNoticeBoardDao implements NoticeBoardDao {
 	SqlSessionFactory sessionFactory = SqlMapConfig.getSqlMapInstance();							
 	SqlSession sqlsession;
 	
+	public OracleNoticeBoardDao() {							
+		sqlsession = sessionFactory.openSession(true);
+	}
+	
 	@Override
 	public void getBoardList() {
 		// TODO Auto-generated method stub
 		
 		
-		sqlsession.selectList("getBoardList");
-		//log.info("[getBoardList()] : " + sqlsession.selectList("getBoardList"));
+		log.info("[getBoardList()] : " + sqlsession.selectList("getBoardList"));
 		
 	}
 	@Override
