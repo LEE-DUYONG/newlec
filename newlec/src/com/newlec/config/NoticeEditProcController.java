@@ -1,19 +1,19 @@
-package com.newlec.controller;
+package com.newlec.config;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.newlec.controller.Controller;
 import com.newlec.domain.NoticeBoardVO;
 import com.newlec.service.NoticeServiceImpl;
 
-public class NoticeEditController implements Controller {
+public class NoticeEditProcController implements Controller {
 
 	@Override
 	public Object execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("NoticeEditController");
+		System.out.println("NoticeEditProcController");
 		NoticeBoardVO notice = null;
-		// UserServiceImpl userServiceImpl = new UserServiceImpl();
 		NoticeServiceImpl noticeServiceImpl = new NoticeServiceImpl();
 
 		// 현재 페이지
@@ -33,8 +33,6 @@ public class NoticeEditController implements Controller {
 		}
 		
 		try {
-			// 나중에 게시글 작성자 확인
-			// userServiceImpl.userCheck(contentNum, userId);
 			notice = noticeServiceImpl.noticeDetail(contentNum);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -43,7 +41,7 @@ public class NoticeEditController implements Controller {
 		System.out.println(notice.toString());
 		request.setAttribute("notice", notice);
 		
-		return "dispatcher:/customer/noticeEdit.yjc?curPage="+curPage+"&contentNum="+contentNum;
+		return "dispatcher:/customer/noticeDetail.yjc?curPage="+curPage+"&contentNum="+contentNum;
 	}
 
 }

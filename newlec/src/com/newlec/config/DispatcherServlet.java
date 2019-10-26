@@ -14,7 +14,7 @@ import org.apache.log4j.Logger;
 import com.newlec.controller.Controller;
 import com.newlec.controller.JoinController;
 import com.newlec.controller.LoginController;
-import com.newlec.controller.NoticeMainController;
+import com.newlec.controller.NoticeListController;
 import com.newlec.controller.NoticeDetailController;
 import com.newlec.controller.NoticeEditController;
 import com.newlec.controller.NoticeRegController;
@@ -83,10 +83,10 @@ public class DispatcherServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else if(requestURI.equals(ctxPath + "/notice.yjc")) { // 게시판 메인
-			System.out.println("noticeMain");
-			Controller noticeMainController = new NoticeMainController();
+			System.out.println("noticeList");
+			Controller noticeListController = new NoticeListController();
 			try {
-				returnURL = (String) noticeMainController.execute(request, response);
+				returnURL = (String) noticeListController.execute(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -105,6 +105,15 @@ public class DispatcherServlet extends HttpServlet {
 			Controller noticeEditController = new NoticeEditController();
 			try {
 				returnURL = (String) noticeEditController.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(requestURI.equals(ctxPath + "/noticeEditProc.yjc")) { // 게시글 수정 후 확정
+			System.out.println("noticeEditProc");
+			Controller noticeEditProcController = new NoticeEditProcController();
+			try {
+				returnURL = (String) noticeEditProcController.execute(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

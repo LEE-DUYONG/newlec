@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -57,19 +58,19 @@
 				<div id="notice-article-detail" class="article-detail margin-large">
 					<dl class="article-detail-row">
 						<dt class="article-detail-title">제목</dt>
-						<dd class="article-detail-data">제 12회 창업스쿨</dd>
+						<dd class="article-detail-data">${notice.title}</dd>
 					</dl>
 					<dl class="article-detail-row">
 						<dt class="article-detail-title">작성일</dt>
-						<dd class="article-detail-data">2010-05-09</dd>
+						<dd class="article-detail-data">${notice.createdDate}</dd>
 					</dl>
 					<dl class="article-detail-row half-row">
 						<dt class="article-detail-title">작성자</dt>
-						<dd class="article-detail-data half-data">뉴렉</dd>
+						<dd class="article-detail-data half-data">${notice.memberId}</dd>
 					</dl>
 					<dl class="article-detail-row half-row">
 						<dt class="article-detail-title">조회수</dt>
-						<dd class="article-detail-data half-data">1235</dd>
+						<dd class="article-detail-data half-data">${notice.hit}</dd>
 					</dl>
 					<dl class="article-detail-row">
 						<dt class="article-detail-title">첨부파일</dt>
@@ -80,23 +81,40 @@
 
 					<div class="article-content">
 						<img src="http://sstatic.naver.net/keypage/outside/info/2011031017145546407.jpg" /><br />
-						동해물과 백두산이 마르고 닳도록
-
+						${notice.content}
 					</div>
 				</div>
 				<p class="article-comment margin-small">
-					<a class="btn-list button" href="notice.jsp">목록</a> <a
-						class="btn-edit button" href="noticeEdit.jsp">수정</a> <a
-						class="btn-del button" href="noticeDel.jsp">삭제</a>
+					<a class="btn-list button" href="notice.yjc">목록</a> <a
+						class="btn-edit button" href="noticeEdit.yjc">수정</a> <a
+						class="btn-del button" href="noticeDel.yjc">삭제</a>
 				</p>
 				<div class="margin-small" style="border-top: 1px solid #dfdfdf;">
 					<dl class="article-detail-row">
 						<dt class="article-detail-title">▲ 다음글</dt>
-						<dd class="article-detail-data">다음 글이 없습니다.</dd>
+						<dd class="article-detail-data">
+							<c:choose>
+								<c:when test="${empty notice.nextTitle}">
+									다음 게시글이 없습니다.
+								</c:when>
+								<c:otherwise>
+									${notice.nextTitle}
+								</c:otherwise>
+							</c:choose>
+						</dd>
 					</dl>
 					<dl class="article-detail-row">
 						<dt class="article-detail-title">▼ 이전글</dt>
-						<dd class="article-detail-data">제 12회 창업스쿨</dd>
+						<dd class="article-detail-data">
+							<c:choose>
+								<c:when test="${empty notice.previousTitle}">
+									이전 게시글이 없습니다.
+								</c:when>
+								<c:otherwise>
+									${notice.previousTitle}
+								</c:otherwise>
+							</c:choose>
+						</dd>
 					</dl>
 				</div>
 			</div>

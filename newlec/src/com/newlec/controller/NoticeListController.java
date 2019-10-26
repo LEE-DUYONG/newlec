@@ -1,20 +1,22 @@
 package com.newlec.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.newlec.domain.NoticeBoardVO;
 import com.newlec.service.NoticeServiceImpl;
 
-public class NoticeDetailController implements Controller {
+public class NoticeListController implements Controller {
 
 	@Override
 	public Object execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("NoticeDetailController");
-		NoticeBoardVO notice = null;
+		System.out.println("NoticeListController");
+		ArrayList<NoticeBoardVO> noticeList = null;
 		NoticeServiceImpl noticeServiceImpl = new NoticeServiceImpl();
-		
+
 		// 현재 페이지
 		int curPage;
 		if(request.getParameter("curPage") == null) {
@@ -23,25 +25,17 @@ public class NoticeDetailController implements Controller {
 			curPage = Integer.parseInt(request.getParameter("curPage"));
 		}
 		
-		// 게시글 번호
-		int contentNum;
-		if(request.getParameter("contentNum") == null) {
-			contentNum = 1;
-		} else {
-			contentNum = Integer.parseInt(request.getParameter("contentNum"));
-		}
-		
-		System.out.println("contentNum : "+contentNum);
 		try {
-			notice = noticeServiceImpl.noticeDetail(contentNum);
+			// nowPage = (int) request.getAttribute("nowPage");
+			noticeList = noticeServiceImpl.noticeMain(curPage);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		System.out.println(notice.toString());
-		request.setAttribute("notice", notice);
+		request.setAttribute("curPage", curPage);
+		request.setAttribute("noticeList", noticeList);
 		
-		return "dispatcher:/customer/noticeDetail.yjc?curPage="+curPage+"&contentNum="+contentNum;
+		return "dispatcher:/customer/notice.jsp?curPage="+curPage;
 	}
 
 }

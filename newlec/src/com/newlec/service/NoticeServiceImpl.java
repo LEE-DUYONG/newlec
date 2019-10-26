@@ -11,29 +11,30 @@ import com.newlec.domain.NoticeBoardVO;
 public class NoticeServiceImpl implements NoticeService {
 	
 	@Override
-	public ArrayList<NoticeBoardVO> noticeMain(int nowPage) throws Exception {
+	public ArrayList<NoticeBoardVO> noticeMain(int curPage) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("NoticeServiceImpl.noticeMain");
 		
-		// DAO와 연결해 게시판 리스트 불러오기
-		// startRow와 endRow를 이용해 제한된 게시판 불러오기
-
-		// 게시판 Row 임시 할당
-		// DAO와 연결해 게시글 전체 수 불러오기
+		// curPage 현재페이지
 		int pageRow = 10; // 한 페이지당 출력하는 게시글 수
-		int noticeCount = 15;
-		int startRow = 0;
-		int endRow = 0;
+		int startRow = 1; // 해당페이지의 시작 게시물
+		int endRow = 1; // 해당페이지의 종료 게시물
+		int noticeTotalCount = 1; // 총게시글
 		
-		// nowPage변수 임시 할당
-		nowPage = 1;
+		// DAO와 연결해 게시글 전체 수 불러오기
+		/* AbcDAO CccDAO = new AbcDAO();
+		 * noticeTotalCount = CccDAO.totalRow();
+		 */
 		
-		startRow = (nowPage * pageRow) - (pageRow - 1);
+		// 총게시글 임시 할당
+		noticeTotalCount = 15;
 		
-		if(noticeCount / pageRow <= nowPage * pageRow) {
-			endRow = noticeCount;
+		startRow = (curPage * pageRow) - (pageRow - 1);
+		
+		if(noticeTotalCount / pageRow <= curPage * pageRow) { // 마지막페이지의 글이 10개(pageRow)보다 작거나 같을 경우
+			endRow = noticeTotalCount;
 		} else {
-			endRow = startRow + 9;
+			endRow = startRow + (pageRow - 1);
 		}
 		
 		
@@ -43,16 +44,21 @@ public class NoticeServiceImpl implements NoticeService {
 		
 		ArrayList<NoticeBoardVO> noticeList = new ArrayList<NoticeBoardVO>();
 		
+		// startRow와 endRow를 이용해 게시판 일부 불러오기
+		/* AbcDAO abcDAO = new AbcDAO();
+		 * 
+		 * noticeList = abcDAO.noticeList(startRow, endRow);
+		 * 
+		*/
 		
 		// 수동 데이터 입력
-		
-		for (int i = 1; i <= 5; i++) {
+		for (int i = 1; i <= 15; i++) {
 			NoticeBoardVO noticeBoardVO = new NoticeBoardVO();
 			noticeBoardVO.setNum(i);
 			noticeBoardVO.setTitle("테스트 "+i);
 			noticeBoardVO.setContent("테스트 내용입니다");
 			java.sql.Date date = java.sql.Date.valueOf("2019-10-21");
-			noticeBoardVO.setDate(date);
+			noticeBoardVO.setCreatedDate(date);
 			noticeBoardVO.setHit(i);
 			noticeBoardVO.setMemberId("DU");
 
@@ -64,10 +70,31 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 	
 	@Override
-	public NoticeBoardVO noticeDetail() throws Exception {
+	public NoticeBoardVO noticeDetail(int contentNum) throws Exception {
 		// TODO Auto-generated method stub
+		System.out.println("NoticeServiceImpl.noticeDetail");
 		NoticeBoardVO noticeBoardVO = new NoticeBoardVO();
 		
+		// contentNum를 이용해 게시글 불러오기
+		/* AbcDAO abcDAO = new AbcDAO();
+		 * 
+		 * noticeBoardVO = abcDAO.noticeContent(contentNum);
+		 * 
+		*/
+		
+		// 수동데이터 입력
+		noticeBoardVO.setNum(1);
+		noticeBoardVO.setTitle("임의 데이터 타이틀");
+		noticeBoardVO.setMemberId("DU");
+		java.sql.Date date = java.sql.Date.valueOf("2019-10-26");
+		noticeBoardVO.setCreatedDate(date);
+		noticeBoardVO.setHit(10);
+		noticeBoardVO.setContent("임의 데이터 내용입니다.");
+// 		noticeBoardVO.setPreviousTitle("이전 게시글 제목");
+  		noticeBoardVO.setPreviousTitle(null);
+		noticeBoardVO.setNextTitle("다음 게시글 제목");
+//		noticeBoardVO.setNextTitle(null);
+//		System.out.println(noticeBoardVO.toString());
 		
 		return noticeBoardVO;
 	}

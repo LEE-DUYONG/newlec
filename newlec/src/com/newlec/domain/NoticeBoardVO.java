@@ -7,9 +7,11 @@ public class NoticeBoardVO {
 	private int num;
 	private String title;
 	private String content;
-	private Date date;
+	private Date createdDate;
 	private int hit;
 	private String memberId;
+	private String previousTitle;
+	private String nextTitle;
 	
 	public int getNum() {
 		return num;
@@ -29,11 +31,11 @@ public class NoticeBoardVO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getDate() {
-		return date;
+	public Date getCreatedDate() {
+		return createdDate;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setCreatedDate(Date createdDate) {
+		this.createdDate = createdDate;
 	}
 	public int getHit() {
 		return hit;
@@ -47,10 +49,25 @@ public class NoticeBoardVO {
 	public void setMemberId(String memberId) {
 		this.memberId = memberId;
 	}
+	public String getPreviousTitle() {
+		return previousTitle;
+	}
+	public void setPreviousTitle(String previousTitle) {
+		this.previousTitle = previousTitle;
+	}
+	public String getNextTitle() {
+		return nextTitle;
+	}
+	public void setNextTitle(String nextTitle) {
+		this.nextTitle = nextTitle;
+	}
 	@Override
 	public String toString() {
-		return "NoticeBoardVO [num=" + num + ", title=" + title + ", content=" + content + ", date=" + date + ", hit="
-				+ hit + ", memberId=" + memberId + "]";
+		return "NoticeBoardVO [num=" + num + ", title=" + title + ", content=" + content + ", createdDate=" + createdDate + ", hit="
+				+ hit + ", memberId=" + memberId + ", previousTitle=" + previousTitle + ", nextTitle=" + nextTitle
+				+ "]";
 	}
+	
+	
 	
 }

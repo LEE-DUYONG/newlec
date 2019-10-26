@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 	<head>
 		<meta charset="UTF-8">
@@ -81,15 +82,15 @@
 								제목
 							</dt>
 							<dd class="article-detail-data">
-								&nbsp;<input name="title" value="제 12회 창업스쿨 " />
+								&nbsp;<input name="title" value="${notice.title}" />
 							</dd>
-						</dl>	
+						</dl>
 						<dl class="article-detail-row half-row">
 							<dt class="article-detail-title">
 								작성자
 							</dt>
 							<dd class="article-detail-data half-data" >
-								뉴렉
+								${notice.memberId}
 							</dd>
 						</dl>
 						<dl class="article-detail-row half-row">
@@ -97,7 +98,7 @@
 								조회수
 							</dt>
 							<dd class="article-detail-data half-data">
-								1235
+								${notice.hit}
 							</dd>
 						</dl>
 						<dl class="article-detail-row">
@@ -110,12 +111,12 @@
 						</dl>
 
 						<div class="article-content" >
-							<textarea id="txtContent" class="txtContent" name="content">동해물과 백두산이 마르고 닳도록</textarea>
-						</div>						
+							<textarea id="txtContent" class="txtContent" name="content">${notice.content}</textarea>
+						</div>
 					</div>
 					<p class="article-comment margin-small">
-						<a class="btn-save button" href="noticeEditProc.jsp">수정</a>
-						<a class="btn-cancel button" href="noticeDetail.jsp">취소</a>						
+						<a class="btn-save button" href="noticeEditProc.yjc">수정</a>
+						<a class="btn-cancel button" href="noticeDetail.yjc">취소</a>						
 					</p>		
 					</form>					
 				</div>				

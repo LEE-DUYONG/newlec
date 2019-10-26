@@ -83,9 +83,9 @@
 						<c:forEach var="notice" items="${noticeList}" varStatus="status">
 						    <tr>
 								<td class="seq">${notice.num}</td>
-								<td class="title"><a href="noticeDetail.jsp">${notice.title}</a></td>
+								<td class="title"><a href="noticeDetail.yjc?page=1&contentNum=1">${notice.title}</a></td>
 								<td class="writer">${notice.memberId}</td>
-								<td class="regdate">${notice.date}</td>
+								<td class="regdate">${notice.createdDate}</td>
 								<td class="hit">${notice.hit}</td>
 						    <tr>
 					    </c:forEach>
@@ -103,11 +103,11 @@
 							<a class="button btn-prev" href="notice.jsp">이전</a>
 						</p>
 						<ul>
-							<li><a class="strong" href="">1</a></li>
-							<li><a href="">2</a></li>
-							<li><a href="">3</a></li>
-							<li><a href="">4</a></li>
-							<li><a href="">5</a></li>
+							<li><a class="strong" href="notice.yjc?page=1">1</a></li>
+							<li><a href="notice.yjc?page=2">2</a></li>
+							<li><a href="notice.yjc?page=3">3</a></li>
+							<li><a href="notice.yjc?page=4">4</a></li>
+							<li><a href="notice.yjc?page=5">5</a></li>
 						</ul>
 						<p id="btnNext">
 							<span class="button btn-next">다음</span>
