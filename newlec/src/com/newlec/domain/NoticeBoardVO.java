@@ -10,6 +10,7 @@ public class NoticeBoardVO {
 	private Date date;
 	private int hit;
 	private String memberId;
+	
 	public int getNum() {
 		return num;
 	}

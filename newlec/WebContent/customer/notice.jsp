@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -79,16 +80,15 @@
 						</tr>
 					</thead>
 					<tbody>
-
-						<tr>
-							<td class="seq">1</td>
-							<td class="title"><a href="noticeDetail.jsp">강좌가 오픈될
-									예정입니다.</a></td>
-							<td class="writer">관리자</td>
-							<td class="regdate">2013-02-10</td>
-							<td class="hit">12</td>
-						</tr>
-
+						<c:forEach var="notice" items="${noticeList}" varStatus="status">
+						    <tr>
+								<td class="seq">${notice.num}</td>
+								<td class="title"><a href="noticeDetail.jsp">${notice.title}</a></td>
+								<td class="writer">${notice.memberId}</td>
+								<td class="regdate">${notice.date}</td>
+								<td class="hit">${notice.hit}</td>
+						    <tr>
+					    </c:forEach>
 					</tbody>
 				</table>
 				<p class="article-comment margin-small">
