@@ -15,7 +15,7 @@ public class NoticeEditProcController implements Controller {
 		System.out.println("NoticeEditProcController");
 		NoticeBoardVO notice = null;
 		NoticeServiceImpl noticeServiceImpl = new NoticeServiceImpl();
-
+		
 		// 현재 페이지
 		int curPage;
 		if(request.getParameter("curPage") == null) {
@@ -41,7 +41,7 @@ public class NoticeEditProcController implements Controller {
 		System.out.println(notice.toString());
 		request.setAttribute("notice", notice);
 		
-		return "dispatcher:/customer/noticeDetail.yjc?curPage="+curPage+"&contentNum="+contentNum;
+		return "dispatcher:/customer/noticeDetail.jsp?curPage="+curPage+"&contentNum="+contentNum;
 	}
 
 }

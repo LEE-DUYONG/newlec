@@ -100,7 +100,16 @@ public class DispatcherServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else if(requestURI.equals(ctxPath + "/noticeEdit.yjc")) { // 게시글 수정
+		} else if(requestURI.equals(ctxPath + "/noticeDel.yjc")) { // 게시글 삭제 후 리스트
+			System.out.println("noticeDel");
+			Controller noticeDelController = new NoticeDelController();
+			try {
+				returnURL = (String) noticeDelController.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(requestURI.equals(ctxPath + "/noticeEdit.yjc")) { // 게시글 보기 후 수정
 			System.out.println("noticeEdit");
 			Controller noticeEditController = new NoticeEditController();
 			try {

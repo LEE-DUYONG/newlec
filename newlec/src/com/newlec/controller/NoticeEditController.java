@@ -43,7 +43,7 @@ public class NoticeEditController implements Controller {
 		System.out.println(notice.toString());
 		request.setAttribute("notice", notice);
 		
-		return "dispatcher:/customer/noticeEdit.yjc?curPage="+curPage+"&contentNum="+contentNum;
+		return "dispatcher:/customer/noticeEdit.jsp?curPage="+curPage+"&contentNum="+contentNum;
 	}
 
 }

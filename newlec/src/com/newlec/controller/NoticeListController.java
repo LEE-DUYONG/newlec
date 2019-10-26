@@ -26,7 +26,6 @@ public class NoticeListController implements Controller {
 		}
 		
 		try {
-			// nowPage = (int) request.getAttribute("nowPage");
 			noticeList = noticeServiceImpl.noticeMain(curPage);
 		} catch (Exception e) {
 			e.printStackTrace();

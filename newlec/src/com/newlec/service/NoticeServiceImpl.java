@@ -90,13 +90,19 @@ public class NoticeServiceImpl implements NoticeService {
 		noticeBoardVO.setCreatedDate(date);
 		noticeBoardVO.setHit(10);
 		noticeBoardVO.setContent("임의 데이터 내용입니다.");
-// 		noticeBoardVO.setPreviousTitle("이전 게시글 제목");
-  		noticeBoardVO.setPreviousTitle(null);
-		noticeBoardVO.setNextTitle("다음 게시글 제목");
+//		noticeBoardVO.setPreviousTitle("이전 게시글 제목");
+//		noticeBoardVO.setPreviousTitle(null);
+//		noticeBoardVO.setNextTitle("다음 게시글 제목");
 //		noticeBoardVO.setNextTitle(null);
 //		System.out.println(noticeBoardVO.toString());
 		
 		return noticeBoardVO;
+	}
+
+	@Override
+	public int noticeDel() throws Exception {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 	@Override
