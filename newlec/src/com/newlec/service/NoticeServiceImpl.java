@@ -2,7 +2,7 @@ package com.newlec.service;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
+import java.util.List;
 
 import com.newlec.dao.NoticeBoardDao;
 import com.newlec.dao.OracleNoticeBoardDao;
@@ -11,7 +11,7 @@ import com.newlec.domain.NoticeBoardVO;
 public class NoticeServiceImpl implements NoticeService {
 	
 	@Override
-	public ArrayList<NoticeBoardVO> noticeMain(int curPage) throws Exception {
+	public List<NoticeBoardVO> noticeMain(int curPage) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("NoticeServiceImpl.noticeMain");
 		
@@ -40,9 +40,9 @@ public class NoticeServiceImpl implements NoticeService {
 		
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
 		
-		noticeBoardDao.getBoardList();
 		
-		ArrayList<NoticeBoardVO> noticeList = new ArrayList<NoticeBoardVO>();
+		
+		List<NoticeBoardVO> noticeList = noticeBoardDao.getBoardList();
 		
 		// startRow와 endRow를 이용해 게시판 일부 불러오기
 		/* AbcDAO abcDAO = new AbcDAO();
@@ -52,19 +52,16 @@ public class NoticeServiceImpl implements NoticeService {
 		*/
 		
 		// 수동 데이터 입력
-		for (int i = 1; i <= 15; i++) {
-			NoticeBoardVO noticeBoardVO = new NoticeBoardVO();
-			noticeBoardVO.setNum(i);
-			noticeBoardVO.setTitle("테스트 "+i);
-			noticeBoardVO.setContent("테스트 내용입니다");
-			java.sql.Date date = java.sql.Date.valueOf("2019-10-21");
-			noticeBoardVO.setCreatedDate(date);
-			noticeBoardVO.setHit(i);
-			noticeBoardVO.setMemberId("DU");
-
-			System.out.println(i+"번째 게시글 :"+noticeBoardVO.toString());
-			noticeList.add(noticeBoardVO);
-		}
+		/*
+		 * for (int i = 1; i <= 15; i++) { NoticeBoardVO noticeBoardVO = new
+		 * NoticeBoardVO(); noticeBoardVO.setNum(i); noticeBoardVO.setTitle("테스트 "+i);
+		 * noticeBoardVO.setContent("테스트 내용입니다"); java.sql.Date date =
+		 * java.sql.Date.valueOf("2019-10-21"); noticeBoardVO.setCreatedDate(date);
+		 * noticeBoardVO.setHit(i); noticeBoardVO.setMemberId("DU");
+		 * 
+		 * System.out.println(i+"번째 게시글 :"+noticeBoardVO.toString());
+		 * noticeList.add(noticeBoardVO); }
+		 */
 		
 		return noticeList;
 	}

@@ -1,8 +1,10 @@
 package com.newlec.dao;
 
+import java.util.List;
+
 import com.newlec.domain.NoticeBoardVO;
 
 public interface NoticeBoardDao {
-	void getBoardList();
+	List<NoticeBoardVO> getBoardList();
 	void insertBoard(NoticeBoardVO noticeBoard);
 }

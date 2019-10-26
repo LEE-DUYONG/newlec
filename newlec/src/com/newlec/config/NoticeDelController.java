@@ -1,6 +1,7 @@
 package com.newlec.config;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +16,7 @@ public class NoticeDelController implements Controller {
 	public Object execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("NoticeDelController");
-		ArrayList<NoticeBoardVO> noticeList = null;
+		List<NoticeBoardVO> noticeList = null;
 		NoticeServiceImpl noticeServiceImpl = new NoticeServiceImpl();
 
 		// 현재 페이지

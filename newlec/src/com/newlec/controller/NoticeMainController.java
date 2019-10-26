@@ -1,6 +1,6 @@
 package com.newlec.controller;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +14,7 @@ public class NoticeMainController implements Controller {
 	public Object execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("NoticeMainController");
-		ArrayList<NoticeBoardVO> noticeList = null;
+		List<NoticeBoardVO> noticeList = null;
 		NoticeServiceImpl noticeServiceImpl = new NoticeServiceImpl();
 		
 		//int nowPage = (int) request.getAttribute("nowPage");

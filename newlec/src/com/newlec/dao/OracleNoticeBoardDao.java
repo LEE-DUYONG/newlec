@@ -1,5 +1,7 @@
 package com.newlec.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.log4j.Logger;
@@ -18,11 +20,10 @@ public class OracleNoticeBoardDao implements NoticeBoardDao {
 	}
 	
 	@Override
-	public void getBoardList() {
+	public List<NoticeBoardVO> getBoardList() {
 		// TODO Auto-generated method stub
 		
-		
-		log.info("[getBoardList()] : " + sqlsession.selectList("getBoardList"));
+		return sqlsession.selectList("getBoardList");
 		
 	}
 	@Override

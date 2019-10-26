@@ -1,11 +1,11 @@
 package com.newlec.service;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import com.newlec.domain.NoticeBoardVO;
 
 public interface NoticeService {
-	ArrayList<NoticeBoardVO> noticeMain(int curPage) throws Exception;
+	List<NoticeBoardVO> noticeMain(int curPage) throws Exception;
 	NoticeBoardVO noticeDetail(int contentNum) throws Exception;
 	int noticeDel() throws Exception;
 	NoticeBoardVO noticeEdit() throws Exception;
