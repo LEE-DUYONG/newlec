@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>
-	Hello world !!! 마이바티스 기능 개선
+	Hello world !!! 마이바티스 기능 개선 ver 1.0
 </h1>
 
 <P>  The time on the Oracle Server is ${curDate}. </P>
