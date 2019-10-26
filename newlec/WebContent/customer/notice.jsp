@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>notice</title>
-<link href="notice.css" type="text/css" rel="stylesheet" />
+<link href="customer/notice.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
 	<div id="header">
@@ -87,7 +87,7 @@
 								<td class="writer">${notice.memberId}</td>
 								<td class="regdate">${notice.createdDate}</td>
 								<td class="hit">${notice.hit}</td>
-						    <tr>
+						    </tr>
 					    </c:forEach>
 					</tbody>
 				</table>
