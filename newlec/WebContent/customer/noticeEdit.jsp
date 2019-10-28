@@ -55,9 +55,9 @@
 						</div>
 					</div>
 					<p class="article-comment margin-small">
-						<!-- <a class="btn-cancel button" href="noticeEditProc.yjc?page=1&contentNum=${notice.num}">수정</a> -->	
-						<input type="submit" value="수정"/>
-						<a class="btn-cancel button" href="noticeDetail.yjc?page=1&contentNum=${notice.num}">취소</a>				
+						<!-- <a class="btn-save button" href="noticeEditProc.yjc?page=1&contentNum=${notice.num}">수정</a> -->	
+						<input class="btn-save button" type="submit" value="수정"/>
+						<a class="btn-cancel button" href="noticeDetail.yjc?page=1&contentNum=${notice.num}"></a>				
 					</p>		
 					</form>		
 				</div>				
