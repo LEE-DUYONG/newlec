@@ -41,9 +41,9 @@
 					</div>
 				</div>
 				<p class="article-comment margin-small">
-					<a class="btn-list button" href="notice.yjc?page=1"></a> <a
-						class="btn-edit button" href="noticeEdit.yjc?page=1&contentNum=${notice.num}"></a> <a
-						class="btn-del button" href="noticeDel.yjc?page=1"></a>
+					<a class="btn-list button" href="notice.yjc?page=1"></a>
+					<a class="btn-edit button" href="noticeEdit.yjc?page=1&contentNum=${notice.num}"></a>
+					<a class="btn-del button" href="noticeDel.yjc?page=1"></a>
 				</p>
 				<div class="margin-small" style="border-top: 1px solid #dfdfdf;">
 					<dl class="article-detail-row">
