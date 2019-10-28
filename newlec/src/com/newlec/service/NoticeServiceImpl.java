@@ -69,6 +69,8 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public NoticeBoardVO noticeDetail(int contentNum) throws Exception {
 		// TODO Auto-generated method stub
+		// 리턴타입 메소드명(받을 입력 파라미터)
+		
 		System.out.println("NoticeServiceImpl.noticeDetail");
 		NoticeBoardVO noticeBoardVO = new NoticeBoardVO();
 		
@@ -79,22 +81,23 @@ public class NoticeServiceImpl implements NoticeService {
 		 * noticeBoardVO = abcDAO.noticeContent(contentNum);
 		 * 
 		*/
+		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
+		NoticeBoardVO boardDetail = noticeBoardDao.getBoardDetail(contentNum);
 		
 		// 수동데이터 입력
-		noticeBoardVO.setNum(1);
-		noticeBoardVO.setTitle("임의 데이터 타이틀");
-		noticeBoardVO.setMemberId("DU");
-		java.sql.Date date = java.sql.Date.valueOf("2019-10-26");
-		noticeBoardVO.setCreatedDate(date);
-		noticeBoardVO.setHit(10);
-		noticeBoardVO.setContent("임의 데이터 내용입니다.");
+		/*
+		 * noticeBoardVO.setNum(1); noticeBoardVO.setTitle("임의 데이터 타이틀");
+		 * noticeBoardVO.setMemberId("DU"); java.sql.Date date =
+		 * java.sql.Date.valueOf("2019-10-26"); noticeBoardVO.setCreatedDate(date);
+		 * noticeBoardVO.setHit(10); noticeBoardVO.setContent("임의 데이터 내용입니다.");
+		 */
 //		noticeBoardVO.setPreviousTitle("이전 게시글 제목");
 //		noticeBoardVO.setPreviousTitle(null);
 //		noticeBoardVO.setNextTitle("다음 게시글 제목");
 //		noticeBoardVO.setNextTitle(null);
 //		System.out.println(noticeBoardVO.toString());
 		
-		return noticeBoardVO;
+		return boardDetail;
 	}
 
 	@Override

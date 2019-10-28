@@ -32,7 +32,15 @@ public class OracleNoticeBoardDao implements NoticeBoardDao {
 		
 	}
 
-					
-								
+	@Override
+	public NoticeBoardVO getBoardDetail(int num) {
+		// TODO Auto-generated method stub
+		NoticeBoardVO boardDetail = sqlsession.selectOne("getBoardDetail", num);
+		
+		log.info("[boardDetail] : " + boardDetail);
+		
+		return boardDetail;
+	}
+						
 }
 
