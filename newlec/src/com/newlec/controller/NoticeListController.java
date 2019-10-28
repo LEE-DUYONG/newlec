@@ -8,12 +8,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.newlec.domain.NoticeBoardVO;
 import com.newlec.service.NoticeServiceImpl;
 
-public class NoticeMainController implements Controller {
+public class NoticeListController implements Controller {
 
 	@Override
 	public Object execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("NoticeMainController");
+		System.out.println("NoticeListController");
 		List<NoticeBoardVO> noticeList = null;
 		NoticeServiceImpl noticeServiceImpl = new NoticeServiceImpl();
 		
@@ -23,7 +23,7 @@ public class NoticeMainController implements Controller {
 		int nowPage = 1;
 		
 		try {
-			noticeList = noticeServiceImpl.noticeMain(nowPage);
+			noticeList = noticeServiceImpl.noticeList(nowPage);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

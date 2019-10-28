@@ -26,7 +26,7 @@ public class NoticeDetailController implements Controller {
 		// 게시글 번호
 		int contentNum;
 		if(request.getParameter("contentNum") == null) {
-			contentNum = 1;
+			contentNum = 1; // 나중에 에러메세지와 뒤로가기 작동으로 변경
 		} else {
 			contentNum = Integer.parseInt(request.getParameter("contentNum"));
 		}

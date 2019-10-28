@@ -1,6 +1,5 @@
 package com.newlec.config;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +30,7 @@ public class NoticeDelController implements Controller {
 		
 		try {
 			result = noticeServiceImpl.noticeDel();
-			noticeList = noticeServiceImpl.noticeMain(curPage);
+			noticeList = noticeServiceImpl.noticeList(curPage);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

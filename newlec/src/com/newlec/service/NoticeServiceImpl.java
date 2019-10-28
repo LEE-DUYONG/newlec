@@ -11,7 +11,7 @@ import com.newlec.domain.NoticeBoardVO;
 public class NoticeServiceImpl implements NoticeService {
 	
 	@Override
-	public List<NoticeBoardVO> noticeMain(int curPage) throws Exception {
+	public List<NoticeBoardVO> noticeList(int curPage) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("NoticeServiceImpl.noticeMain");
 		
@@ -75,6 +75,7 @@ public class NoticeServiceImpl implements NoticeService {
 		// contentNum를 이용해 게시글 불러오기
 		/* AbcDAO abcDAO = new AbcDAO();
 		 * 
+		 * contentNum 변수는 보고싶은 게시글 번호
 		 * noticeBoardVO = abcDAO.noticeContent(contentNum);
 		 * 
 		*/

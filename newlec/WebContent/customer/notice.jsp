@@ -83,7 +83,7 @@
 						<c:forEach var="notice" items="${noticeList}" varStatus="status">
 						    <tr>
 								<td class="seq">${notice.num}</td>
-								<td class="title"><a href="noticeDetail.yjc?page=1&contentNum=1">${notice.title}</a></td>
+								<td class="title"><a href="noticeDetail.yjc?page=1&contentNum=${notice.num}">${notice.title}</a></td>
 								<td class="writer">${notice.memberId}</td>
 								<td class="regdate">${notice.createdDate}</td>
 								<td class="hit">${notice.hit}</td>
