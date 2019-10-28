@@ -10,5 +10,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM TBL_MEMBER a , TBL_NOTICE_BOARD b
 		where a.id = b.MEMBER_ID order by b.num desc
 	</select>
+	
+	<!-- 계시물 세부 조회 -->
+	<select id="getBoardDetail" resultType="com.newlec.domain.NoticeBoardVO">
+		SELECT num, title, CREATED_DATE "createdDate", HIT, MEMBER_ID "memberId", CONTENT
+		FROM TBL_NOTICE_BOARD
+		WHERE NUM = #{num}
+	</select>
 
 </mapper>

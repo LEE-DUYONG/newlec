@@ -36,7 +36,6 @@
 					</dl>
 
 					<div class="article-content">
-						<img src="http://sstatic.naver.net/keypage/outside/info/2011031017145546407.jpg" /><br />
 						${notice.content}
 					</div>
 				</div>
