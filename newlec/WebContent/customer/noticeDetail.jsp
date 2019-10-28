@@ -93,27 +93,29 @@
 					<dl class="article-detail-row">
 						<dt class="article-detail-title">▲ 다음글</dt>
 						<dd class="article-detail-data">
-							<c:choose>
+							다음 게시글
+<%-- 							<c:choose>
 								<c:when test="${empty notice.nextTitle}">
 									다음 게시글이 없습니다.
 								</c:when>
 								<c:otherwise>
 									${notice.nextTitle}
 								</c:otherwise>
-							</c:choose>
+							</c:choose> --%>
 						</dd>
 					</dl>
 					<dl class="article-detail-row">
 						<dt class="article-detail-title">▼ 이전글</dt>
 						<dd class="article-detail-data">
-							<c:choose>
+							이전 게시글
+<%-- 							<c:choose>
 								<c:when test="${empty notice.previousTitle}">
 									이전 게시글이 없습니다.
 								</c:when>
 								<c:otherwise>
 									${notice.previousTitle}
 								</c:otherwise>
-							</c:choose>
+							</c:choose> --%>
 						</dd>
 					</dl>
 				</div>

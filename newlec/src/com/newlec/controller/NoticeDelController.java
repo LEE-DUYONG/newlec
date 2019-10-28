@@ -25,11 +25,20 @@ public class NoticeDelController implements Controller {
 		} else {
 			curPage = Integer.parseInt(request.getParameter("curPage"));
 		}
+
+		// 게시글 번호
+		int contentNum;
+		if(request.getParameter("contentNum") == null) {
+			contentNum = 1; // 나중에 에러메세지와 뒤로가기 작동으로 변경
+		} else {
+			contentNum = Integer.parseInt(request.getParameter("contentNum"));
+		}
 		
 		int result = 0;
 		
 		try {
-			result = noticeServiceImpl.noticeDel();
+			// 나중에 유저이름체크도 추가
+			result = noticeServiceImpl.noticeDel(contentNum);
 			noticeList = noticeServiceImpl.noticeList(curPage);
 		} catch (Exception e) {
 			e.printStackTrace();

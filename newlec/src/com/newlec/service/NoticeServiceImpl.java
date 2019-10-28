@@ -98,9 +98,22 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public int noticeDel() throws Exception {
+	public int noticeDel(int contentNum) throws Exception {
 		// TODO Auto-generated method stub
-		return 0;
+		
+		// 나중에 유저이름체크도 추가
+
+		int result = 0;
+		//contentNum 게시글 번호를 이용해 게시글 삭제 DAO
+		
+		if(result == 0) {
+			System.out.println("게시글 삭제 성공!");
+		} else {
+			System.out.println("게시글 삭제 실패");
+		}
+		
+		
+		return result;
 	}
 
 	@Override
