@@ -10,7 +10,7 @@
 	<div id="header">
 		<div class="top-wrapper">
 			<h1 id="logo">
-				<a href="/"><img src="images/logo.png" alt="뉴렉처" /></a>
+				<a href="${pageContext.request.contextPath}/index.jsp"><img src="${pageContext.request.contextPath}/images/logo.png" alt="뉴렉처" /></a>
 			</h1>
 			<h2 class="hidden">메인메뉴</h2>
 			<ul id="mainmenu" class="block_hlist">
@@ -35,8 +35,7 @@
 			<ul id="membermenu" class="clear">
 				<li><a href=""><img src="images/menuMyPage.png" alt="마이페이지" /></a>
 				</li>
-				<li><a href="customer/notice.jsp"><img
-						src="images/menuCustomer.png" alt="고객센터" /></a></li>
+				<li><a href="${pageContext.request.contextPath}/notice.yjc"><img src="images/menuCustomer.png" alt="고객센터" /></a></li>
 			</ul>
 		</div>
 	</div>
