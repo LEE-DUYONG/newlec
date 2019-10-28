@@ -27,7 +27,8 @@ public class NoticeEditController implements Controller {
 		// 게시글 번호
 		int contentNum;
 		if(request.getParameter("contentNum") == null) {
-			contentNum = 1;
+			contentNum = 1; // 나중에 실패처리 추가
+			System.out.println("게시글 번호 불러오기 실패");
 		} else {
 			contentNum = Integer.parseInt(request.getParameter("contentNum"));
 		}

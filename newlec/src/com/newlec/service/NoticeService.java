@@ -8,6 +8,6 @@ public interface NoticeService {
 	List<NoticeBoardVO> noticeList(int curPage) throws Exception;
 	NoticeBoardVO noticeDetail(int contentNum) throws Exception;
 	int noticeDel(int contentNum) throws Exception;
-	NoticeBoardVO noticeEdit() throws Exception;
+	int noticeEdit(NoticeBoardVO notice) throws Exception;
 	NoticeBoardVO noticeReg() throws Exception;
 }

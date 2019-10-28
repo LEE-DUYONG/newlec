@@ -13,7 +13,7 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public List<NoticeBoardVO> noticeList(int curPage) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("NoticeServiceImpl.noticeMain");
+		System.out.println("NoticeServiceImpl.noticeList");
 		
 		// curPage 현재페이지
 		int pageRow = 10; // 한 페이지당 출력하는 게시글 수
@@ -117,12 +117,14 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public NoticeBoardVO noticeEdit() throws Exception {
+	public int noticeEdit(NoticeBoardVO notice) throws Exception {
 		// TODO Auto-generated method stub
-		NoticeBoardVO noticeBoardVO = new NoticeBoardVO();
+		System.out.println("noticeEdit");
+		System.out.println("바뀐 내용 /// num = "+notice.getNum()+" title = "+notice.getTitle()+" content = "+notice.getContent());
 		
+		// notice의 정보를 DAO로 수정
 		
-		return noticeBoardVO;
+		return 0;
 	}
 
 	@Override

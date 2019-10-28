@@ -75,14 +75,14 @@
 							공지사항수정
 						</li>
 					</ul>
-					<form action="" method="post">
+					<form action="noticeEditProc.yjc?page=1&contentNum=${notice.num}" method="post">
 					<div id="notice-article-detail" class="article-detail margin-large" >						
 						<dl class="article-detail-row">
 							<dt class="article-detail-title">
 								제목
 							</dt>
 							<dd class="article-detail-data">
-								&nbsp;<input name="title" value="${notice.title}" />
+								&nbsp;<input name="noticeTitle" value="${notice.title}" />
 							</dd>
 						</dl>
 						<dl class="article-detail-row half-row">
@@ -111,14 +111,15 @@
 						</dl>
 
 						<div class="article-content" >
-							<textarea id="txtContent" class="txtContent" name="content">${notice.content}</textarea>
+							<textarea id="txtContent" class="txtContent" name="noticeContent">${notice.content}</textarea>
 						</div>
 					</div>
 					<p class="article-comment margin-small">
-						<a class="btn-save button" href="noticeEditProc.yjc">수정</a>
-						<a class="btn-cancel button" href="noticeDetail.yjc">취소</a>						
+						<!-- <a class="btn-cancel button" href="noticeEditProc.yjc?page=1&contentNum=${notice.num}">수정</a> -->	
+						<input type="submit" value="수정"/>
+						<a class="btn-cancel button" href="noticeDetail.yjc?page=1&contentNum=${notice.num}">취소</a>				
 					</p>		
-					</form>					
+					</form>		
 				</div>				
 				<div id="navi">
 					<h2>고객센터</h2>
