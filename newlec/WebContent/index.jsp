@@ -39,7 +39,28 @@
 			</ul>
 		</div>
 	</div>
-	<div id="main"></div>
+	<div id="visual">
+		<div class="content-container">
+			<h2 class="hidden">신규 강좌목록</h2>
+			<!-- <ul class="mov-button">
+				<li class="prev-button">이전</li>
+				<li class="next-button">다음</li>
+			</ul> -->
+			<ul class="banner">
+				<li class="banner1">
+				</li>
+			</ul>
+			
+			<ul class="banner-button-list" style="color:#ffff00; font-size:20px;position:absolute; left:10px; bottom:5px; z-index: 100px; display: flex; flex-direction: row;">			
+				<li></li>			
+			</ul>
+		</div>
+	</div>
+	
+	
+	<div id="main">
+	
+	</div>
 	<div id="footer">
 		<div class="top-wrapper">
 			<h2>
