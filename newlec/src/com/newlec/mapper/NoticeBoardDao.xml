@@ -13,9 +13,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 계시물 세부 조회 -->
 	<select id="getBoardDetail" resultType="com.newlec.domain.NoticeBoardVO">
-		SELECT num, title, CREATED_DATE "createdDate", HIT, MEMBER_ID "memberId", CONTENT
-		FROM TBL_NOTICE_BOARD
-		WHERE NUM = #{num}
+		SELECT NUM, TITLE, CREATED_DATE　"createdDate", HIT, a.id ||'('|| a.username ||')' "memberId"
+		FROM TBL_MEMBER a , TBL_NOTICE_BOARD b
+		WHERE a.id = b.MEMBER_ID and NUM = #{num}
 	</select>
 
 </mapper>
