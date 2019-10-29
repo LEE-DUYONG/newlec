@@ -3,11 +3,7 @@ package com.newlec.config;
 import java.io.IOException;
 import java.util.StringTokenizer;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +21,7 @@ import com.newlec.controller.NoticeEditController;
 import com.newlec.controller.NoticeEditProcController;
 import com.newlec.controller.NoticeListController;
 import com.newlec.controller.NoticeRegController;
+import com.newlec.controller.NoticeRegProcController;
 import com.newlec.controller.TestController;
 
 /**
@@ -139,6 +136,15 @@ public class DispatcherServlet extends HttpServlet {
 			Controller noticeRegController = new NoticeRegController();
 			try {
 				returnURL = (String) noticeRegController.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(requestURI.equals(ctxPath + "/noticeRegProc.yjc")) {
+			System.out.println("noticeRegProc");
+			Controller noticeRegProcController = new NoticeRegProcController();
+			try {
+				returnURL = (String) noticeRegProcController.execute(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

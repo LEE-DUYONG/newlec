@@ -10,4 +10,5 @@ public interface NoticeService {
 	int noticeDel(int contentNum) throws Exception;
 	int noticeEdit(NoticeBoardVO notice) throws Exception;
 	NoticeBoardVO noticeReg() throws Exception;
+	void noticeRegProc() throws Exception;
 }

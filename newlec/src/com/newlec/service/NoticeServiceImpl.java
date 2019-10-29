@@ -133,10 +133,22 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public NoticeBoardVO noticeReg() throws Exception {
 		// TODO Auto-generated method stub
-		NoticeBoardVO noticeBoardVO = new NoticeBoardVO();
 		
+		return null;
+	}
+
+	@Override
+	public void noticeRegProc() throws Exception {
+		// TODO Auto-generated method stub
+		NoticeBoardVO noticeBoard = new NoticeBoardVO();
+		// 데이터 수동 작성
+		noticeBoard.setTitle("YJC퇴사~~~");
+		noticeBoard.setContent("하루빨리 접어야지~~~");
+		noticeBoard.setMemberId("ow1l7");
 		
-		return noticeBoardVO;
+		// Dao 호출
+		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
+		noticeBoardDao.insertBoard(noticeBoard);
 	}
 
 }
