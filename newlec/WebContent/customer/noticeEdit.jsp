@@ -22,7 +22,7 @@
 								제목
 							</dt>
 							<dd class="article-detail-data">
-								&nbsp;<input name="noticeTitle" value="${notice.title}" />
+								&nbsp;<input name="title" value="${notice.title}" />
 							</dd>
 						</dl>
 						<dl class="article-detail-row half-row">
@@ -51,7 +51,7 @@
 						</dl>
 
 						<div class="article-content" >
-							<textarea id="txtContent" class="txtContent" name="noticeContent">${notice.content}</textarea>
+							<textarea id="txtContent" class="txtContent" name="content">${notice.content}</textarea>
 						</div>
 					</div>
 					<p class="article-comment margin-small">

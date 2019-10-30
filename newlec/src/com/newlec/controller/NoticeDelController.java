@@ -45,9 +45,9 @@ public class NoticeDelController implements Controller {
 		}
 		
 		if(result == 0) {
-			System.out.println("삭제 성공");
-		} else {
 			System.out.println("삭제 실패");
+		} else {
+			System.out.println("삭제 성공");
 		}
 		request.setAttribute("curPage", curPage);
 		request.setAttribute("noticeList", noticeList);

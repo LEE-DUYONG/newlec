@@ -3,7 +3,6 @@ package com.newlec.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.newlec.controller.Controller;
 import com.newlec.domain.NoticeBoardVO;
 import com.newlec.service.NoticeServiceImpl;
 
@@ -32,13 +31,12 @@ public class NoticeEditProcController implements Controller {
 			contentNum = Integer.parseInt(request.getParameter("contentNum"));
 		}
 		
-
 		
 		
 		notice.setNum(contentNum);
-		notice.setTitle(request.getParameter("noticeTitle"));
-		notice.setContent(request.getParameter("noticeContent"));
-		System.out.println("NoticeEditProcController notice.setContent()");
+		notice.setTitle(request.getParameter("title"));
+		notice.setContent(request.getParameter("content"));
+//		System.out.println("NoticeEditProcController notice.setContent()");
 		NoticeServiceImpl noticeServiceImpl = new NoticeServiceImpl();
 		
 		
@@ -51,9 +49,9 @@ public class NoticeEditProcController implements Controller {
 		}
 
 		if(result == 0) {
-			System.out.println("수정 성공");
-		} else {
 			System.out.println("수정 실패");
+		} else {
+			System.out.println("수정 성공");
 		}
 		
 		return "dispatcher:/customer/noticeDetail.jsp?curPage="+curPage+"&contentNum="+contentNum;

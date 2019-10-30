@@ -27,12 +27,12 @@ public class OracleNoticeBoardDao implements NoticeBoardDao {
 		
 	}
 	@Override
-	public void insertBoard(NoticeBoardVO noticeBoard) {
+	public int insertBoard(NoticeBoardVO noticeBoard) {
 		// TODO Auto-generated method stub
 		
 		log.info("[noticeBoard] : " + noticeBoard);
 		
-		sqlsession.insert("insertBoard", noticeBoard);
+		return sqlsession.insert("insertBoard", noticeBoard);
 	}
 
 	@Override
