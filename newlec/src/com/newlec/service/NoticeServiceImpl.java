@@ -160,4 +160,19 @@ public class NoticeServiceImpl implements NoticeService {
 		return result;
 	}
 
+	@Override
+	public int curNoticeNum() throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("noticeNewNum");
+		
+		// 임시 수동 memberId
+		String memberId = "ow1l7";
+		
+		// 해당유저의 최신 등록한 글 번호 가져오기
+		// 이부분 DAO 연결 성공하면 int curNoticeNum = 0;으로 변경
+		int curNoticeNum = 1;
+		
+		return curNoticeNum;
+	}
+
 }

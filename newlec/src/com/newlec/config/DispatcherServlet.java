@@ -122,7 +122,7 @@ public class DispatcherServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else if(requestURI.equals(ctxPath + "/noticeEditProc.yjc")) { // 게시글 수정 결과
+		} else if(requestURI.equals(ctxPath + "/noticeEditProc.yjc")) { // 게시글 수정 실행
 			System.out.println("noticeEditProc");
 			Controller noticeEditProcController = new NoticeEditProcController();
 			try {
@@ -140,7 +140,7 @@ public class DispatcherServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else if(requestURI.equals(ctxPath + "/noticeRegProc.yjc")) { // 게시글 작성 결과
+		} else if(requestURI.equals(ctxPath + "/noticeRegProc.yjc")) { // 게시글 작성 실행
 			System.out.println("noticeRegProc");
 			Controller noticeRegProcController = new NoticeRegProcController();
 			try {

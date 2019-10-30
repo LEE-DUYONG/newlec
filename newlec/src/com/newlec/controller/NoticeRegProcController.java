@@ -36,7 +36,7 @@ public class NoticeRegProcController implements Controller {
 		try {
 			// 나중에 게시글 유저 체크 추가
 			result = noticeServiceImpl.noticeRegProc(notice);
-			System.out.println("NoticeRegProcController - result : "+result);
+			System.out.println("NoticeRegProcController - noticeRegProc - result : "+result);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -49,7 +49,21 @@ public class NoticeRegProcController implements Controller {
 		
 		// 게시글 번호
 		// 유저의 가장 최신 게시글 번호 받아오기
-		int contentNum = 1;
+		int contentNum = 0;
+		
+		try {
+			// 나중에 게시글 유저  추가
+			// result = noticeServiceImpl.curNoticeNum(userId);
+			contentNum = noticeServiceImpl.curNoticeNum();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		if(contentNum == 0) {
+			System.out.println("가장 최신 게시글 번호 받아오기 실패");
+		} else {
+			System.out.println("가장 최신 게시글 번호 받아오기 성공");
+		}
 		
 		return "dispatcher:/customer/noticeDetail.jsp?curPage="+curPage+"&contentNum="+contentNum;
 	}
