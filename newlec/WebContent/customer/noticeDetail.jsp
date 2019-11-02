@@ -48,7 +48,6 @@
 					<dl class="article-detail-row">
 						<dt class="article-detail-title">▲ 다음글</dt>
 						<dd class="article-detail-data">
-							다음 게시글
 							<c:choose>
 								<c:when test="${empty nextTitle}">
 									다음 게시글이 없습니다.
@@ -62,7 +61,6 @@
 					<dl class="article-detail-row">
 						<dt class="article-detail-title">▼ 이전글</dt>
 						<dd class="article-detail-data">
-							이전 게시글
 							<c:choose>
 								<c:when test="${empty previousTitle}">
 									이전 게시글이 없습니다.
