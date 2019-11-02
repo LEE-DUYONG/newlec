@@ -82,7 +82,7 @@ public class NoticeServiceImpl implements NoticeService {
 		// TODO Auto-generated method stub
 		System.out.println("NoticeServiceImpl.noticeNextTitle");
 		
-		// contentNum의 rownum + 1로 다음 게시글 불러오기(contentNum으로 하면 삭제되었을 경우 불러오기 불가능)
+		// contentNum의 rownum + 1로 다음 게시글 불러오기(contentNum으로 불러오면 삭제되었을 경우 불러오기 불가능)
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
 		
 		
@@ -95,7 +95,7 @@ public class NoticeServiceImpl implements NoticeService {
 		// TODO Auto-generated method stub
 		System.out.println("NoticeServiceImpl.noticePreviousTitle");
 		
-		// contentNum의 rownum - 1로 이전 게시글 불러오기(contentNum으로 하면 삭제되었을 경우 불러오기 불가능)
+		// contentNum의 rownum - 1로 이전 게시글 불러오기(contentNum으로 불러오면 삭제되었을 경우 불러오기 불가능)
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
 		
 		
