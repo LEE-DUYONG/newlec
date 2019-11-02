@@ -50,11 +50,11 @@
 						<dd class="article-detail-data">
 							다음 게시글
 <%-- 							<c:choose>
-								<c:when test="${empty notice.nextTitle}">
+								<c:when test="${empty nextTitle}">
 									다음 게시글이 없습니다.
 								</c:when>
 								<c:otherwise>
-									${notice.nextTitle}
+									${nextTitle}
 								</c:otherwise>
 							</c:choose> --%>
 						</dd>
@@ -64,11 +64,11 @@
 						<dd class="article-detail-data">
 							이전 게시글
 <%-- 							<c:choose>
-								<c:when test="${empty notice.previousTitle}">
+								<c:when test="${empty previousTitle}">
 									이전 게시글이 없습니다.
 								</c:when>
 								<c:otherwise>
-									${notice.previousTitle}
+									${previousTitle}
 								</c:otherwise>
 							</c:choose> --%>
 						</dd>

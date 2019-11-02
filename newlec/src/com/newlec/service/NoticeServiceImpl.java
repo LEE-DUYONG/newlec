@@ -70,32 +70,37 @@ public class NoticeServiceImpl implements NoticeService {
 		// 리턴타입 메소드명(받을 입력 파라미터)
 		
 		System.out.println("NoticeServiceImpl.noticeDetail");
-		NoticeBoardVO noticeBoardVO = new NoticeBoardVO();
 		
 		// contentNum를 이용해 게시글 불러오기
-		/* AbcDAO abcDAO = new AbcDAO();
-		 * 
-		 * contentNum 변수는 보고싶은 게시글 번호
-		 * noticeBoardVO = abcDAO.noticeContent(contentNum);
-		 * 
-		*/
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
-		NoticeBoardVO boardDetail = noticeBoardDao.getBoardDetail(contentNum);
 		
-		// 수동데이터 입력
-		/*
-		 * noticeBoardVO.setNum(1); noticeBoardVO.setTitle("임의 데이터 타이틀");
-		 * noticeBoardVO.setMemberId("DU"); java.sql.Date date =
-		 * java.sql.Date.valueOf("2019-10-26"); noticeBoardVO.setCreatedDate(date);
-		 * noticeBoardVO.setHit(10); noticeBoardVO.setContent("임의 데이터 내용입니다.");
-		 */
-//		noticeBoardVO.setPreviousTitle("이전 게시글 제목");
-//		noticeBoardVO.setPreviousTitle(null);
-//		noticeBoardVO.setNextTitle("다음 게시글 제목");
-//		noticeBoardVO.setNextTitle(null);
-//		System.out.println(noticeBoardVO.toString());
+		return noticeBoardDao.getBoardDetail(contentNum);
+	}
+
+	@Override
+	public NoticeBoardVO noticeNextTitle(int contentNum) throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("NoticeServiceImpl.noticeDetail");
 		
-		return boardDetail;
+		// contentNum의 rownum + 1로 다음 게시글 불러오기(contentNum으로 하면 삭제되었을 경우 불러오기 불가능)
+		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
+		
+		
+		//return noticeBoardDao.            (contentNum);
+		return null;
+	}
+
+	@Override
+	public NoticeBoardVO noticePreviousTitle(int contentNum) throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("NoticeServiceImpl.noticeDetail");
+		
+		// contentNum의 rownum - 1로 이전 게시글 불러오기(contentNum으로 하면 삭제되었을 경우 불러오기 불가능)
+		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
+		
+		
+		//return noticeBoardDao.            (contentNum);
+		return null;
 	}
 
 	@Override
