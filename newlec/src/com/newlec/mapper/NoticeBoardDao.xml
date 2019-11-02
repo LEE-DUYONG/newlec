@@ -4,18 +4,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.newlec.dao.NoticeBoardDao">
 
-	<!-- 계시물 리스트 조회 -->
+	<!-- 게시물 리스트 조회 -->
 	<select id="getBoardList" resultType="com.newlec.domain.NoticeBoardVO">
 		SELECT NUM, TITLE, CREATED_DATE　"createdDate", HIT, a.id ||'('|| a.username ||')' "memberId"
 		FROM TBL_MEMBER a , TBL_NOTICE_BOARD b
 		where a.id = b.MEMBER_ID order by b.num desc
 	</select>
 	
-	<!-- 계시물 세부 조회 -->
+	<!-- 게시물 세부 조회 -->
 	<select id="getBoardDetail" resultType="com.newlec.domain.NoticeBoardVO">
 		SELECT NUM, TITLE, CONTENT, CREATED_DATE　"createdDate", HIT, a.id ||'('|| a.username ||')' "memberId"
 		FROM TBL_MEMBER a , TBL_NOTICE_BOARD b
 		WHERE a.id = b.MEMBER_ID and NUM = #{num}
+	</select>
+	
+	<!--새글 작성 후 게시물 번호 조회 -->
+	<select id="getNewBoardNum" resultType="int">
+		SELECT NUM
+		FROM TBL_NOTICE_BOARD
+		WHERE member_id = #{memberId} and rownum = 1
+        order by num desc
 	</select>
 	
 	<!-- 게시물 등록 -->

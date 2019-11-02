@@ -16,14 +16,6 @@ public class NoticeEditProcController implements Controller {
 		NoticeBoardVO nextTitle = null;
 		NoticeBoardVO previousTitle = null;
 		
-		// 현재 페이지
-		int curPage;
-		if(request.getParameter("curPage") == null) {
-			curPage = 1;
-		} else {
-			curPage = Integer.parseInt(request.getParameter("curPage"));
-		}
-		
 		// 게시글 번호
 		int contentNum;
 		if(request.getParameter("contentNum") == null) {
@@ -32,8 +24,6 @@ public class NoticeEditProcController implements Controller {
 		} else {
 			contentNum = Integer.parseInt(request.getParameter("contentNum"));
 		}
-		
-		
 		
 		notice.setNum(contentNum);
 		notice.setTitle(request.getParameter("title"));
@@ -94,8 +84,8 @@ public class NoticeEditProcController implements Controller {
 		request.setAttribute("previousTitle", previousTitle);
 		
 		
-		
-		return "dispatcher:/customer/noticeDetail.jsp?curPage="+curPage+"&contentNum="+contentNum;
+
+		return "dispatcher:/customer/noticeDetail.jsp";
 	}
 
 }

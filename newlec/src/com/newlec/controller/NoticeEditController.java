@@ -15,14 +15,6 @@ public class NoticeEditController implements Controller {
 		NoticeBoardVO notice = null;
 		// UserServiceImpl userServiceImpl = new UserServiceImpl();
 		NoticeServiceImpl noticeServiceImpl = new NoticeServiceImpl();
-
-		// 현재 페이지
-		int curPage;
-		if(request.getParameter("curPage") == null) {
-			curPage = 1;
-		} else {
-			curPage = Integer.parseInt(request.getParameter("curPage"));
-		}
 		
 		// 게시글 번호
 		int contentNum;
@@ -43,8 +35,8 @@ public class NoticeEditController implements Controller {
 		
 		System.out.println(notice.toString());
 		request.setAttribute("notice", notice);
-		
-		return "dispatcher:/customer/noticeEdit.jsp?curPage="+curPage+"&contentNum="+contentNum;
+
+		return "dispatcher:/customer/noticeEdit.jsp";
 	}
 
 }

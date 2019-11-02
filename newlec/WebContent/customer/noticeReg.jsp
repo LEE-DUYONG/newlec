@@ -11,7 +11,7 @@
 					<li>고객센터</li>
 					<li>공지사항등록</li>
 				</ul>
-				<form action="noticeRegProc.yjc?page=1" method="post">
+				<form action="noticeRegProc.yjc" method="post">
 					<div id="notice-article-detail" class="article-detail margin-large">
 						<dl class="article-detail-row">
 							<dt class="article-detail-title">제목</dt>

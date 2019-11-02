@@ -17,14 +17,6 @@ public class NoticeDetailController implements Controller {
 		NoticeBoardVO previousTitle = null;
 		NoticeServiceImpl noticeServiceImpl = new NoticeServiceImpl();
 		
-		// 현재 페이지
-		int curPage;
-		if(request.getParameter("curPage") == null) {
-			curPage = 1;
-		} else {
-			curPage = Integer.parseInt(request.getParameter("curPage"));
-		}
-		
 		// 게시글 번호
 		int contentNum;
 		if(request.getParameter("contentNum") == null) {
@@ -78,8 +70,8 @@ public class NoticeDetailController implements Controller {
 		request.setAttribute("previousTitle", previousTitle);
 		
 		
-		
-		return "dispatcher:/customer/noticeDetail.jsp?curPage="+curPage+"&contentNum="+contentNum;
+
+		return "dispatcher:/customer/noticeDetail.jsp";
 	}
 
 }

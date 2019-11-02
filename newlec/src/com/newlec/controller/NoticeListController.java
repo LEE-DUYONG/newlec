@@ -16,14 +16,17 @@ public class NoticeListController implements Controller {
 		System.out.println("NoticeListController");
 		List<NoticeBoardVO> noticeList = null;
 		NoticeServiceImpl noticeServiceImpl = new NoticeServiceImpl();
-		
-		//int nowPage = (int) request.getAttribute("nowPage");
-		
-		//임시 할당
-		int nowPage = 1;
+
+		// 현재 페이지
+		int curPage;
+		if(request.getParameter("curPage") == null) {
+			curPage = 1;
+		} else {
+			curPage = Integer.parseInt(request.getParameter("curPage"));
+		}
 		
 		try {
-			noticeList = noticeServiceImpl.noticeList(nowPage);
+			noticeList = noticeServiceImpl.noticeList(curPage);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

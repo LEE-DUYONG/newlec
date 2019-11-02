@@ -14,16 +14,6 @@ public class NoticeRegProcController implements Controller {
 		System.out.println("NoticeRegProcController");
 		NoticeBoardVO notice = new NoticeBoardVO();
 		
-
-		// 현재 페이지
-		int curPage;
-		if(request.getParameter("curPage") == null) {
-			curPage = 1;
-		} else {
-			curPage = Integer.parseInt(request.getParameter("curPage"));
-		}
-		
-		
 		// 게시글 정보 받아오기
 		notice.setTitle(request.getParameter("title"));
 		notice.setContent(request.getParameter("content"));
@@ -31,12 +21,23 @@ public class NoticeRegProcController implements Controller {
 		notice.setCreatedDate(sqlDate);
 		
 		NoticeServiceImpl noticeServiceImpl = new NoticeServiceImpl();
-		
+
 		int result = 0;
+		
+		// 게시글 번호
+		int contentNum = 0;
 		try {
+			//게시글 작성
 			// 나중에 게시글 유저 체크 추가
 			result = noticeServiceImpl.noticeRegProc(notice);
 			System.out.println("NoticeRegProcController - noticeRegProc - result : "+result);
+			
+			// 유저의 가장 최신 게시글 번호 받아오기
+			// result = noticeServiceImpl.curNoticeNum(userId);
+			contentNum = noticeServiceImpl.newNoticeNum();
+			
+			notice = noticeServiceImpl.noticeDetail(contentNum);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -47,25 +48,26 @@ public class NoticeRegProcController implements Controller {
 			System.out.println("등록 성공");
 		}
 		
-		// 게시글 번호
-		// 유저의 가장 최신 게시글 번호 받아오기
-		int contentNum = 0;
-		
-		try {
-			// 나중에 게시글 유저  추가
-			// result = noticeServiceImpl.curNoticeNum(userId);
-			contentNum = noticeServiceImpl.curNoticeNum();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
 		if(contentNum == 0) {
 			System.out.println("가장 최신 게시글 번호 받아오기 실패");
 		} else {
 			System.out.println("가장 최신 게시글 번호 받아오기 성공");
 		}
 		
-		return "dispatcher:/customer/noticeDetail.jsp?curPage="+curPage+"&contentNum="+contentNum;
+		request.setAttribute("contentNum", contentNum);
+		
+		
+		if(notice == null) {
+			System.out.println("게시글 불러오기 실패");
+		} else {
+			System.out.println("게시글 불러오기 성공");
+		}
+		
+		System.out.println(notice.toString());
+		request.setAttribute("notice", notice);
+		
+		
+		return "dispatcher:/customer/noticeDetail.jsp";
 	}
 
 }

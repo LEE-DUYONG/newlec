@@ -46,6 +46,13 @@ public class OracleNoticeBoardDao implements NoticeBoardDao {
 	}
 
 	@Override
+	public int getNewBoardNum(String memberId) {
+		// TODO Auto-generated method stub
+		
+		return sqlsession.selectOne("getNewBoardNum", memberId);
+	}
+
+	@Override
 	public int updateBoard(NoticeBoardVO noticeBoard) {
 		// TODO Auto-generated method stub
 		

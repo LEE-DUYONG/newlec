@@ -163,7 +163,7 @@ public class DispatcherServlet extends HttpServlet {
 		if(returnURL != null && !"".equals(returnURL)){
 			StringTokenizer urlForToken = new StringTokenizer(returnURL,":");
 			String url = urlForToken.nextToken();
-			System.out.println(url);
+			//System.out.println("urlForToken.nextToken() : "+urlForToken.nextToken());
 			
 			if("dispatcher".equals(url)){
 				request.getRequestDispatcher(urlForToken.nextToken()).forward(request, response);
