@@ -56,7 +56,6 @@ public class NoticeDetailController implements Controller {
 		
 		System.out.println(notice.toString());
 		request.setAttribute("notice", notice);
-
 		
 		
 		

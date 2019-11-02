@@ -38,8 +38,6 @@ public class NoticeServiceImpl implements NoticeService {
 		
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
 		
-		
-		
 		List<NoticeBoardVO> noticeList = noticeBoardDao.getBoardList();
 		
 		// startRow와 endRow를 이용해 게시판 일부 불러오기
@@ -137,8 +135,11 @@ public class NoticeServiceImpl implements NoticeService {
 		// TODO Auto-generated method stub
 		System.out.println("noticeEdit");
 		System.out.println("바뀐 내용 /// num = "+notice.getNum()+" title = "+notice.getTitle()+" content = "+notice.getContent());
+
+		// notice의 정보를 DAO로 수정
+		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
 		
-		int result = 0;
+		int result = noticeBoardDao.updateBoard(notice);
 		
 		if(result == 0) {
 			System.out.println("게시글 수정 실패");
@@ -146,9 +147,7 @@ public class NoticeServiceImpl implements NoticeService {
 			System.out.println("게시글 수정 성공!");
 		}
 		
-		// notice의 정보를 DAO로 수정
-		
-		return 0;
+		return result;
 	}
 
 	@Override

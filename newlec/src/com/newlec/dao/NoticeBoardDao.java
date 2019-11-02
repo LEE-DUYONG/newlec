@@ -9,6 +9,7 @@ public interface NoticeBoardDao {
 	NoticeBoardVO getBoardDetail(int num);
 	// [2.출력] 메소드(1.입력)
 	int insertBoard(NoticeBoardVO noticeBoard);
+	int updateBoard(NoticeBoardVO noticeBoard);
 	
 	
 }

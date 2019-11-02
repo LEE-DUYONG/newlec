@@ -44,6 +44,15 @@ public class OracleNoticeBoardDao implements NoticeBoardDao {
 		
 		return boardDetail;
 	}
+
+	@Override
+	public int updateBoard(NoticeBoardVO noticeBoard) {
+		// TODO Auto-generated method stub
+		
+		log.info("[updateBoard] : " + noticeBoard);
+		
+		return sqlsession.update("updateBoard", noticeBoard);
+	}
 						
 }
 

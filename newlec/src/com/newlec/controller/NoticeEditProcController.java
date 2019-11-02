@@ -13,6 +13,8 @@ public class NoticeEditProcController implements Controller {
 		// TODO Auto-generated method stub
 		System.out.println("NoticeEditProcController");
 		NoticeBoardVO notice = new NoticeBoardVO();
+		NoticeBoardVO nextTitle = null;
+		NoticeBoardVO previousTitle = null;
 		
 		// 현재 페이지
 		int curPage;
@@ -44,6 +46,13 @@ public class NoticeEditProcController implements Controller {
 		try {
 			// 나중에 게시글 유저 체크 추가
 			result = noticeServiceImpl.noticeEdit(notice);
+			
+			notice = noticeServiceImpl.noticeDetail(contentNum);
+			
+
+			// 현재 게시글의 이전, 다음글 제목 검색하기
+			nextTitle = noticeServiceImpl.noticeNextTitle(contentNum);
+			previousTitle = noticeServiceImpl.noticePreviousTitle(contentNum);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -53,6 +62,38 @@ public class NoticeEditProcController implements Controller {
 		} else {
 			System.out.println("수정 성공");
 		}
+		
+
+		if(notice == null) {
+			System.out.println("게시글 불러오기 실패");
+		} else {
+			System.out.println("게시글 불러오기 성공");
+		}
+		
+		System.out.println(notice.toString());
+		request.setAttribute("notice", notice);
+		
+		
+		
+		if(nextTitle == null) {
+			System.out.println("다음 게시글 제목 불러오기 실패");
+		} else {
+			System.out.println("다음 게시글 제목 불러오기 성공");
+		}
+		
+		System.out.println("nextTitle : "+nextTitle);
+		request.setAttribute("nextTitle", nextTitle);
+
+		if(previousTitle == null) {
+			System.out.println("이전 게시글 제목 불러오기 실패");
+		} else {
+			System.out.println("이전 게시글 제목 불러오기 성공");
+		}
+		
+		System.out.println("previousTitle : "+previousTitle);
+		request.setAttribute("previousTitle", previousTitle);
+		
+		
 		
 		return "dispatcher:/customer/noticeDetail.jsp?curPage="+curPage+"&contentNum="+contentNum;
 	}

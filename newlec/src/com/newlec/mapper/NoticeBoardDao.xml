@@ -17,7 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		FROM TBL_MEMBER a , TBL_NOTICE_BOARD b
 		WHERE a.id = b.MEMBER_ID and NUM = #{num}
 	</select>
-
+	
 	<!-- 게시물 등록 -->
 	<insert id="insertBoard" parameterType="com.newlec.domain.NoticeBoardVO">
 		INSERT INTO TBL_NOTICE_BOARD(
@@ -26,5 +26,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			seq_notice_board.nextval, #{title}, SYSDATE , 1, #{memberId}, #{content}
 		)
 	</insert>
+	
+	<!-- 게시물 수정 -->
+	<update id="updateBoard" parameterType="com.newlec.domain.NoticeBoardVO">
+		UPDATE TBL_NOTICE_BOARD
+		set TITLE = #{title}, CONTENT = #{content}
+		where NUM = #{num}
+	</update>
 	
 </mapper>
