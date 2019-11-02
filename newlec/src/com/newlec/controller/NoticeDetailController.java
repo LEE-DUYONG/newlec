@@ -55,7 +55,7 @@ public class NoticeDetailController implements Controller {
 		request.setAttribute("notice", notice);
 
 		
-		/*
+		
 		
 		if(nextTitle == null) {
 			System.out.println("다음 게시글 제목 불러오기 실패");
@@ -75,7 +75,7 @@ public class NoticeDetailController implements Controller {
 		System.out.println("previousTitle : "+previousTitle);
 		request.setAttribute("previousTitle", previousTitle);
 		
-		*/
+		
 		
 		return "dispatcher:/customer/noticeDetail.jsp?curPage="+curPage+"&contentNum="+contentNum;
 	}
