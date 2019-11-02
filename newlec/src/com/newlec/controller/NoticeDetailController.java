@@ -35,6 +35,9 @@ public class NoticeDetailController implements Controller {
 		
 		System.out.println("contentNum : "+contentNum);
 		try {
+			// 조회수 hit +1
+			noticeServiceImpl.noticeHit(contentNum);
+			
 			notice = noticeServiceImpl.noticeDetail(contentNum);
 			
 			// 현재 게시글의 이전, 다음글 제목 검색하기

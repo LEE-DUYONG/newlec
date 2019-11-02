@@ -80,7 +80,7 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public NoticeBoardVO noticeNextTitle(int contentNum) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("NoticeServiceImpl.noticeDetail");
+		System.out.println("NoticeServiceImpl.noticeNextTitle");
 		
 		// contentNum의 rownum + 1로 다음 게시글 불러오기(contentNum으로 하면 삭제되었을 경우 불러오기 불가능)
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
@@ -93,7 +93,7 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public NoticeBoardVO noticePreviousTitle(int contentNum) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("NoticeServiceImpl.noticeDetail");
+		System.out.println("NoticeServiceImpl.noticePreviousTitle");
 		
 		// contentNum의 rownum - 1로 이전 게시글 불러오기(contentNum으로 하면 삭제되었을 경우 불러오기 불가능)
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
@@ -103,6 +103,16 @@ public class NoticeServiceImpl implements NoticeService {
 		return null;
 	}
 
+	@Override
+	public void noticeHit(int contentNum) throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("NoticeServiceImpl.noticeHit");
+		
+		// 조회수 +1
+		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
+		//noticeBoardDao.            (contentNum);
+	}
+	
 	@Override
 	public int noticeDel(int contentNum) throws Exception {
 		// TODO Auto-generated method stub
