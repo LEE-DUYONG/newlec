@@ -43,9 +43,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</update>
 	
 	<!-- 게시물 삭제 -->
-	<delete id="deleteBoard" parameterType="com.newlec.domain.NoticeBoardVO">
+	<delete id="deleteBoard" parameterType="int">
 		delete from TBL_NOTICE_BOARD
 		where NUM = #{num}
 	</delete>
+	
+	<!-- 조회수 + 1 -->
+	<update id="upCountHits" parameterType="int">
+		UPDATE TBL_NOTICE_BOARD
+		set hit = hit + 1
+		where NUM = #{num}
+	</update>
 	
 </mapper>

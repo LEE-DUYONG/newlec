@@ -30,7 +30,7 @@ public class NoticeRegProcController implements Controller {
 			//게시글 작성
 			// 나중에 게시글 유저 체크 추가
 			result = noticeServiceImpl.noticeRegProc(notice);
-			System.out.println("NoticeRegProcController - noticeRegProc - result : "+result);
+//			System.out.println("NoticeRegProcController - noticeRegProc - result : "+result);
 			
 			// 유저의 가장 최신 게시글 번호 받아오기
 			// result = noticeServiceImpl.curNoticeNum(userId);

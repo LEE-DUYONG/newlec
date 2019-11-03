@@ -108,7 +108,8 @@ public class NoticeServiceImpl implements NoticeService {
 		
 		// 조회수 +1
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
-		//noticeBoardDao.            (contentNum);
+		noticeBoardDao.upCountHits(contentNum);
+		System.out.println("NoticeServiceImpl.noticeHit 종료");
 	}
 	
 	@Override

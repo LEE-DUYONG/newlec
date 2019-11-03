@@ -68,6 +68,14 @@ public class OracleNoticeBoardDao implements NoticeBoardDao {
 		System.out.println("deleteBoard-num:"+num);
 		return sqlsession.delete("deleteBoard", num);
 	}
+
+	@Override
+	public void upCountHits(int num) {
+		// TODO Auto-generated method stub
+		System.out.println("upCountHits : "+num);
+		log.info("[upCountHits] : " + num);
+		sqlsession.update("upCountHits", num);
+	}
 						
 }
 
