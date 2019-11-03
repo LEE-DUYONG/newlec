@@ -117,17 +117,11 @@ public class NoticeServiceImpl implements NoticeService {
 		
 		// 나중에 유저이름체크도 추가
 
-		int result = 0;
-		//contentNum 게시글 번호를 이용해 게시글 삭제 DAO
-		
-		if(result == 0) {
-			System.out.println("게시글 삭제 실패");
-		} else {
-			System.out.println("게시글 삭제 성공!");
-		}
+		System.out.println("noticeDel-contentNum:"+contentNum);
+		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
 		
 		
-		return result;
+		return noticeBoardDao.deleteBoard(contentNum);
 	}
 	
 	@Override

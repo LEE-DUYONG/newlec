@@ -17,15 +17,7 @@ public class NoticeDelController implements Controller {
 		System.out.println("NoticeDelController");
 		List<NoticeBoardVO> noticeList = null;
 		NoticeServiceImpl noticeServiceImpl = new NoticeServiceImpl();
-
-		// 현재 페이지
-		int curPage;
-		if(request.getParameter("curPage") == null) {
-			curPage = 1;
-		} else {
-			curPage = Integer.parseInt(request.getParameter("curPage"));
-		}
-
+		
 		// 게시글 번호
 		int contentNum;
 		if(request.getParameter("contentNum") == null) {
@@ -33,6 +25,10 @@ public class NoticeDelController implements Controller {
 		} else {
 			contentNum = Integer.parseInt(request.getParameter("contentNum"));
 		}
+		System.out.println("contentNum : "+contentNum);
+		
+		// 첫페이지
+		int curPage = 1;
 		
 		int result = 0;
 		
@@ -52,7 +48,7 @@ public class NoticeDelController implements Controller {
 		request.setAttribute("curPage", curPage);
 		request.setAttribute("noticeList", noticeList);
 		
-		return "dispatcher:/customer/notice.jsp?curPage="+curPage;
+		return "dispatcher:/customer/notice.jsp";
 	}
 
 }

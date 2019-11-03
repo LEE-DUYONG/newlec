@@ -24,13 +24,14 @@ public class NoticeDetailController implements Controller {
 		} else {
 			contentNum = Integer.parseInt(request.getParameter("contentNum"));
 		}
-		
 		System.out.println("contentNum : "+contentNum);
+		
 		try {
 			// 조회수 hit +1
 			noticeServiceImpl.noticeHit(contentNum);
-			
+//			System.out.println("noticeServiceImpl.noticeDetail 전");
 			notice = noticeServiceImpl.noticeDetail(contentNum);
+//			System.out.println("noticeServiceImpl.noticeDetail 후");
 			
 			// 현재 게시글의 이전, 다음글 제목 검색하기
 			nextTitle = noticeServiceImpl.noticeNextTitle(contentNum);

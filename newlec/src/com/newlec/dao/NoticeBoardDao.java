@@ -11,6 +11,7 @@ public interface NoticeBoardDao {
 	// [2.출력] 메소드(1.입력)
 	int insertBoard(NoticeBoardVO noticeBoard);
 	int updateBoard(NoticeBoardVO noticeBoard);
+	int deleteBoard(int num);
 	
 	
 }

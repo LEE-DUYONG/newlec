@@ -60,6 +60,14 @@ public class OracleNoticeBoardDao implements NoticeBoardDao {
 		
 		return sqlsession.update("updateBoard", noticeBoard);
 	}
+
+	@Override
+	public int deleteBoard(int num) {
+		// TODO Auto-generated method stub
+		log.info("[deleteBoard] : " + num);
+		System.out.println("deleteBoard-num:"+num);
+		return sqlsession.delete("deleteBoard", num);
+	}
 						
 }
 
