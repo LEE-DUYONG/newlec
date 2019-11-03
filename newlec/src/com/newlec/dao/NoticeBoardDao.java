@@ -13,6 +13,8 @@ public interface NoticeBoardDao {
 	int updateBoard(NoticeBoardVO noticeBoard);
 	int deleteBoard(int num);
 	void upCountHits(int num);
+	int getCurRownum(int num);
+	NoticeBoardVO getBoardTitle(int rownum);
 	
 	
 }

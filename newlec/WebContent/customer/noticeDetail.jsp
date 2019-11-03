@@ -46,27 +46,27 @@
 				</p>
 				<div class="margin-small" style="border-top: 1px solid #dfdfdf;">
 					<dl class="article-detail-row">
-						<dt class="article-detail-title">▲ 다음글</dt>
+						<dt class="article-detail-title"><a href="noticeDetail.yjc?page=1&contentNum=${nextTitle.num}">▲ 다음글</a></dt>
 						<dd class="article-detail-data">
 							<c:choose>
 								<c:when test="${empty nextTitle}">
 									다음 게시글이 없습니다.
 								</c:when>
 								<c:otherwise>
-									${nextTitle}
+									${nextTitle.title}
 								</c:otherwise>
 							</c:choose>
 						</dd>
 					</dl>
 					<dl class="article-detail-row">
-						<dt class="article-detail-title">▼ 이전글</dt>
+						<dt class="article-detail-title"><a href="noticeDetail.yjc?page=1&contentNum=${previousTitle.num}">▼ 이전글</a></dt>
 						<dd class="article-detail-data">
 							<c:choose>
 								<c:when test="${empty previousTitle}">
 									이전 게시글이 없습니다.
 								</c:when>
 								<c:otherwise>
-									${previousTitle}
+									${previousTitle.title}
 								</c:otherwise>
 							</c:choose>
 						</dd>

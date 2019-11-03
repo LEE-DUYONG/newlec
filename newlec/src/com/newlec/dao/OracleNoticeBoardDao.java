@@ -76,6 +76,23 @@ public class OracleNoticeBoardDao implements NoticeBoardDao {
 		log.info("[upCountHits] : " + num);
 		sqlsession.update("upCountHits", num);
 	}
+
+	@Override
+	public int getCurRownum(int num) {
+		// TODO Auto-generated method stub
+
+		return sqlsession.selectOne("getCurRownum", num);
+	}
+
+	@Override
+	public NoticeBoardVO getBoardTitle(int rownum) {
+		// TODO Auto-generated method stub
+		NoticeBoardVO boardDetail = sqlsession.selectOne("getBoardTitle", rownum);
+		
+		log.info("[getBoardTitle] : " + boardDetail);
+		
+		return boardDetail;
+	}
 						
 }
 

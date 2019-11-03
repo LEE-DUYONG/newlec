@@ -33,9 +33,12 @@ public class NoticeDetailController implements Controller {
 			notice = noticeServiceImpl.noticeDetail(contentNum);
 //			System.out.println("noticeServiceImpl.noticeDetail 후");
 			
+			// 현재 게시글의 rownum 구하기
+			int rownum = noticeServiceImpl.noticeCurRownum(contentNum);
+			
 			// 현재 게시글의 이전, 다음글 제목 검색하기
-			nextTitle = noticeServiceImpl.noticeNextTitle(contentNum);
-			previousTitle = noticeServiceImpl.noticePreviousTitle(contentNum);
+			nextTitle = noticeServiceImpl.noticeNextTitle(rownum);
+			previousTitle = noticeServiceImpl.noticePreviousTitle(rownum);
 			
 		} catch (Exception e) {
 			e.printStackTrace();

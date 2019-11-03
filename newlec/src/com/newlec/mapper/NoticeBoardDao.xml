@@ -55,4 +55,28 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where NUM = #{num}
 	</update>
 	
+	<!-- 게시글 rownum 가져오기 -->
+	<select id="getCurRownum" resultType="int">
+        select b.rnum
+        from (SELECT ROWNUM rnum, num
+            FROM ( SELECT num
+                   FROM TBL_NOTICE_BOARD
+                   ORDER BY NUM desc
+                 ) a
+             ) b
+        where num = #{num}
+	</select>
+	
+	<!-- rownum으로 앞,뒤 게시물 제목 조회 -->
+	<select id="getBoardTitle" resultType="com.newlec.domain.NoticeBoardVO">
+        select num, title
+        from (SELECT ROWNUM rnum, num, title
+            FROM ( SELECT num, title
+                   FROM TBL_NOTICE_BOARD
+                   ORDER BY NUM desc
+                 ) a
+             ) b
+        where rnum = #{rownum}
+	</select>
+	
 </mapper>

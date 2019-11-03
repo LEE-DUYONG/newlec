@@ -64,29 +64,33 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public NoticeBoardVO noticeNextTitle(int contentNum) throws Exception {
+	public int noticeCurRownum(int contentNum) throws Exception {
+		// TODO Auto-generated method stub
+		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
+		
+		return noticeBoardDao.getCurRownum(contentNum);
+	}
+
+	@Override
+	public NoticeBoardVO noticeNextTitle(int rownum) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("NoticeServiceImpl.noticeNextTitle");
 		
 		// contentNum의 rownum + 1로 다음 게시글 불러오기(contentNum으로 불러오면 삭제되었을 경우 불러오기 불가능)
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
 		
-		
-		//return noticeBoardDao.            (contentNum);
-		return null;
+		return noticeBoardDao.getBoardTitle(rownum + 1);
 	}
 
 	@Override
-	public NoticeBoardVO noticePreviousTitle(int contentNum) throws Exception {
+	public NoticeBoardVO noticePreviousTitle(int rownum) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("NoticeServiceImpl.noticePreviousTitle");
 		
 		// contentNum의 rownum - 1로 이전 게시글 불러오기(contentNum으로 불러오면 삭제되었을 경우 불러오기 불가능)
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
 		
-		
-		//return noticeBoardDao.            (contentNum);
-		return null;
+		return noticeBoardDao.getBoardTitle(rownum - 1);
 	}
 
 	@Override
