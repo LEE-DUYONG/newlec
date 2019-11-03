@@ -36,7 +36,7 @@
 					</dl>
 
 					<div class="article-content">
-						${notice.content}
+						<pre>${notice.content}</pre>
 					</div>
 				</div>
 				<p class="article-comment margin-small">
