@@ -3,9 +3,10 @@ package com.newlec.service;
 import java.util.List;
 
 import com.newlec.domain.NoticeBoardVO;
+import com.newlec.domain.PageVO;
 
 public interface NoticeService {
-	List<NoticeBoardVO> noticeList(int curPage) throws Exception;
+	List<NoticeBoardVO> noticeList(PageVO pageVO) throws Exception;
 	NoticeBoardVO noticeDetail(int contentNum) throws Exception;
 	int noticeCurRownum(int contentNum) throws Exception;
 	NoticeBoardVO noticeNextTitle(int rownum) throws Exception;
@@ -15,4 +16,5 @@ public interface NoticeService {
 	int noticeEdit(NoticeBoardVO notice) throws Exception;
 	int noticeRegProc(NoticeBoardVO notice) throws Exception;
 	int newNoticeNum() throws Exception;
+	PageVO noticePaging(int curPage) throws Exception;
 }

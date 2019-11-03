@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.newlec.domain.NoticeBoardVO;
+import com.newlec.domain.PageVO;
 import com.newlec.service.NoticeServiceImpl;
 
 public class NoticeListController implements Controller {
@@ -15,6 +16,7 @@ public class NoticeListController implements Controller {
 		// TODO Auto-generated method stub
 		System.out.println("NoticeListController");
 		List<NoticeBoardVO> noticeList = null;
+		PageVO pageVO = null;
 		NoticeServiceImpl noticeServiceImpl = new NoticeServiceImpl();
 
 		// 현재 페이지
@@ -26,11 +28,15 @@ public class NoticeListController implements Controller {
 		}
 		
 		try {
-			noticeList = noticeServiceImpl.noticeList(curPage);
+			pageVO = noticeServiceImpl.noticePaging(curPage);
+			System.out.println("pageVO : "+pageVO.toString());
+			noticeList = noticeServiceImpl.noticeList(pageVO);
+			System.out.println("noticeList 조회 완료");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
+		request.setAttribute("pageVO", pageVO);
 		request.setAttribute("noticeList", noticeList);
 		
 		return "dispatcher:/customer/notice.jsp";

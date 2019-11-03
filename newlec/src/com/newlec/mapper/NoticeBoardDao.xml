@@ -11,6 +11,24 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		where a.id = b.MEMBER_ID order by b.num desc
 	</select>
 	
+	<!-- 페이징 처리된 게시물 리스트 조회 -->
+	<!-- 부등호 에러 해결 <![CDATA[]]> -->
+	<select id="getPagingBoardList" resultType="com.newlec.domain.NoticeBoardVO">
+        <![CDATA[
+        SELECT NUM, TITLE, createdDate, HIT, memberId 
+        FROM ( SELECT rnum, NUM, TITLE, createdDate, HIT, memberId
+               FROM ( SELECT ROWNUM rnum, NUM, TITLE, createdDate, HIT, memberId
+                      FROM ( SELECT NUM, TITLE, CREATED_DATE　createdDate, HIT, a.id ||'('|| a.username ||')' memberId
+                             FROM TBL_MEMBER a , TBL_NOTICE_BOARD b
+                             WHERE a.id = b.MEMBER_ID order by b.num desc
+                           ) c
+                    ) d
+               WHERE rnum <= #{endRow}
+             )
+        WHERE rnum >= #{startRow}
+        ]]>
+	</select>
+	
 	<!-- 게시물 세부 조회 -->
 	<select id="getBoardDetail" resultType="com.newlec.domain.NoticeBoardVO">
 		SELECT NUM, TITLE, CONTENT, CREATED_DATE　"createdDate", HIT, a.id ||'('|| a.username ||')' "memberId"
@@ -77,6 +95,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
                  ) a
              ) b
         where rnum = #{rownum}
+	</select>
+	
+	<!-- 게시글 총 갯수 조회 -->
+	<select id="getBoardCount" resultType="int">
+        SELECT count(*)
+        FROM TBL_NOTICE_BOARD
 	</select>
 	
 </mapper>

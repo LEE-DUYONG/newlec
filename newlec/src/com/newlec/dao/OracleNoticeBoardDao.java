@@ -7,7 +7,8 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.log4j.Logger;
 
 import com.newlec.config.SqlMapConfig;
-import com.newlec.domain.NoticeBoardVO;	
+import com.newlec.domain.NoticeBoardVO;
+import com.newlec.domain.PageVO;	
 
 public class OracleNoticeBoardDao implements NoticeBoardDao {
 	
@@ -26,6 +27,15 @@ public class OracleNoticeBoardDao implements NoticeBoardDao {
 		return sqlsession.selectList("getBoardList");
 		
 	}
+	
+	@Override
+	public List<NoticeBoardVO> getBoardList(PageVO pageVO) {
+		// TODO Auto-generated method stub
+
+//		System.out.println(pageVO.toString());
+		return sqlsession.selectList("getPagingBoardList", pageVO);
+	}
+	
 	@Override
 	public int insertBoard(NoticeBoardVO noticeBoard) {
 		// TODO Auto-generated method stub
@@ -92,6 +102,12 @@ public class OracleNoticeBoardDao implements NoticeBoardDao {
 		log.info("[getBoardTitle] : " + boardDetail);
 		
 		return boardDetail;
+	}
+
+	@Override
+	public int getBoardCount() {
+		// TODO Auto-generated method stub
+		return sqlsession.selectOne("getBoardCount");
 	}
 						
 }

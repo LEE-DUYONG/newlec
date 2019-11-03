@@ -50,23 +50,31 @@
 					<a class="btn-write button" href="noticeReg.yjc?page=1"></a>
 				</p>
 				<p id="cur-page" class="margin-small">
-					<span class="strong">1</span> / 10 page
+					<span class="strong">${pageVO.curPage}</span> / ${pageVO.totalPage} page
 				</p>
 				<div id="pager-wrapper" class="margin-small">
 					<div class="pager clear">
-						<p id="btnPrev">
-							<a class="button btn-prev" href="notice.jsp">이전</a>
-						</p>
+						<c:choose>
+							<c:when test="${pageVO.curPage == 1}"></c:when>
+							<c:otherwise>
+								<p id="btnPrev">
+									<a class="button btn-prev" href="notice.yjc?curPage=${pageVO.curPage-1}">이전</a>
+								</p>
+							</c:otherwise>
+						</c:choose>
 						<ul>
-							<li><a class="strong" href="notice.yjc?page=1">1</a></li>
-							<li><a href="notice.yjc?page=2">2</a></li>
-							<li><a href="notice.yjc?page=3">3</a></li>
-							<li><a href="notice.yjc?page=4">4</a></li>
-							<li><a href="notice.yjc?page=5">5</a></li>
+							<c:forEach var="i" begin="${pageVO.startPage}" end="${pageVO.lastPage}" step="1" >
+								<li><a class="strong" href="notice.yjc?curPage=${i}">${i}</a></li>
+							</c:forEach>
 						</ul>
-						<p id="btnNext">
-							<span class="button btn-next">다음</span>
-						</p>
+						<c:choose>
+							<c:when test="${pageVO.curPage == pageVO.totalPage}"></c:when>
+							<c:otherwise>
+								<p id="btnNext">
+									<a class="button btn-next" href="notice.yjc?curPage=${pageVO.curPage+1}">다음</a>
+								</p>
+							</c:otherwise>
+						</c:choose>
 					</div>
 				</div>
 			</div>

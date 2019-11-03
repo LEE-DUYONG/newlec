@@ -5,49 +5,73 @@ import java.util.List;
 import com.newlec.dao.NoticeBoardDao;
 import com.newlec.dao.OracleNoticeBoardDao;
 import com.newlec.domain.NoticeBoardVO;
+import com.newlec.domain.PageVO;
 
 public class NoticeServiceImpl implements NoticeService {
 	
 	@Override
-	public List<NoticeBoardVO> noticeList(int curPage) throws Exception {
+	public List<NoticeBoardVO> noticeList(PageVO pageVO) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("NoticeServiceImpl.noticeList");
+		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
+		
+		// 게시판 리스트 전부
+//		List<NoticeBoardVO> noticeList = noticeBoardDao.getBoardList();
+		
+		// 페이징 처리한 게시판 리스트
+		List<NoticeBoardVO> noticeList = noticeBoardDao.getBoardList(pageVO);
+		
+//		System.out.println("noticeList - "+noticeList.toString());
+		
+		return noticeList;
+	}
+
+	@Override
+	public PageVO noticePaging(int curPage) throws Exception {
+		// TODO Auto-generated method stub
+		System.out.println("NoticeServiceImpl.noticePaging");
+		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
+		PageVO pageVO = new PageVO();
 		
 		// curPage 현재페이지
 		int pageRow = 10; // 한 페이지당 출력하는 게시글 수
 		int startRow = 1; // 해당페이지의 시작 게시물
 		int endRow = 1; // 해당페이지의 종료 게시물
-		int noticeTotalCount = 1; // 총게시글
+		int noticeTotalRow = noticeBoardDao.getBoardCount(); // 게시글 전체 수
+		int noticeTotalPage = (int)Math.ceil((noticeTotalRow/(double)pageRow)); // 게시글 페이지 수
+		System.out.println("페이지수 noticeTotalRow/pageRow:"+noticeTotalRow+"/"+pageRow+"="+noticeTotalRow/pageRow);
+		int startPage = 1; // 해당페이지의 시작 페이지 번호
+		int lastPage = 1; // 해당페이지의 마지막 페이지 번호
 		
-		// DAO와 연결해 게시글 전체 수 불러오기
-		/* AbcDAO CccDAO = new AbcDAO();
-		 * noticeTotalCount = CccDAO.totalRow();
-		 */
-		
-		// 총게시글 임시 할당
-		noticeTotalCount = 15;
-		
-		startRow = (curPage * pageRow) - (pageRow - 1);
-		
-		if(noticeTotalCount / pageRow <= curPage * pageRow) { // 마지막페이지의 글이 10개(pageRow)보다 작거나 같을 경우
-			endRow = noticeTotalCount;
+		startRow = (curPage * pageRow) - (pageRow - 1); // (1 * 10) - (10 - 1) = 10 - 9 = 1
+		                                                // (2 * 10) - (10 - 1) = 20 - 9 = 11
+		if(curPage == noticeTotalPage) { // 마지막페이지일 경우
+			endRow = noticeTotalRow;
 		} else {
-			endRow = startRow + (pageRow - 1);
+			endRow = startRow + (pageRow - 1); // 1 + (10 - 1) = 1 + 9 = 10
+			                                   // 11 + (10 - 1) = 11 + 9 = 20
 		}
 		
+		if(curPage <= 3) {
+			startPage = 1;
+		} else {
+			startPage = curPage-2;
+		}
 		
-		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
+		if((noticeTotalPage - curPage) <= 2) {
+			lastPage = noticeTotalPage;
+		} else {
+			lastPage = startPage+4;
+		}
 		
-		List<NoticeBoardVO> noticeList = noticeBoardDao.getBoardList();
+		pageVO.setStartRow(startRow);
+		pageVO.setEndRow(endRow);
+		pageVO.setTotalPage(noticeTotalPage);
+		pageVO.setCurPage(curPage);
+		pageVO.setStartPage(startPage);
+		pageVO.setLastPage(lastPage);
 		
-		// startRow와 endRow를 이용해 게시판 일부 불러오기
-		/* AbcDAO abcDAO = new AbcDAO();
-		 * 
-		 * noticeList = abcDAO.noticeList(startRow, endRow);
-		 * 
-		*/
-		
-		return noticeList;
+		return pageVO;
 	}
 	
 	@Override

@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.newlec.controller.Controller;
 import com.newlec.domain.NoticeBoardVO;
+import com.newlec.domain.PageVO;
 import com.newlec.service.NoticeServiceImpl;
 
 public class NoticeDelController implements Controller {
@@ -16,6 +17,7 @@ public class NoticeDelController implements Controller {
 		// TODO Auto-generated method stub
 		System.out.println("NoticeDelController");
 		List<NoticeBoardVO> noticeList = null;
+		PageVO pageVO = null;
 		NoticeServiceImpl noticeServiceImpl = new NoticeServiceImpl();
 		
 		// 게시글 번호
@@ -35,7 +37,8 @@ public class NoticeDelController implements Controller {
 		try {
 			// 나중에 유저이름체크도 추가
 			result = noticeServiceImpl.noticeDel(contentNum);
-			noticeList = noticeServiceImpl.noticeList(curPage);
+			pageVO = noticeServiceImpl.noticePaging(curPage);
+			noticeList = noticeServiceImpl.noticeList(pageVO);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
