@@ -17,24 +17,31 @@
 						<fieldset>
 							<legend class="hidden">로그인 폼</legend>
 							<h3>
-								<img src="${pageContext.request.contextPath}/images/txtTitle.png" />
+								<img src="${pageContext.request.contextPath}/joinus/images/txtTitle.png" />
 							</h3>
 							<ul id="loginBox">
-								<li><label for="uid">아이디</label><input name="UserName"
-									class="text" /></li>
-								<li><label for="pwd">비밀번호</label><input type="password"
-									name="Password" class="text" /></li>
+								<li>
+									<label for="uid">아이디</label>
+									<input name="UserName" class="text" />
+								</li>
+								<li>
+									<label for="pwd">비밀번호</label>
+									<input type="password" name="Password" class="text" />
+								</li>
 							</ul>
 							<p>
 								<input type="submit" id="btnLogin" value="" />
 							</p>
 							<ul id="loginOption">
-								<li><span>아이디 또는 비밀번호를 분실하셨나요?</span><a
-									href="/Member/FindID"><img alt="ID/PWD 찾기"
-										src="${pageContext.request.contextPath}/images/btnFind.png" /></a></li>
-								<li><span>아이디가 없으신 분은 회원가입을 해주세요.</span><a
-									href="/Member/Agree"><img alt="회원가입"
-										src="${pageContext.request.contextPath}/images/btnJoin.png" /></a></li>
+								<li>
+									<span>아이디 또는 비밀번호를 분실하셨나요?</span>
+									<%-- <a href="/Member/FindID"><img alt="ID/PWD 찾기" src="${pageContext.request.contextPath}/joinus/images/btnFind.png" /></a> --%>
+									<img alt="ID/PWD 찾기" src="${pageContext.request.contextPath}/joinus/images/btnFind.png" />
+								</li>
+								<li>
+									<span>아이디가 없으신 분은 회원가입을 해주세요.</span>
+									<a href="join.yjc"><img alt="회원가입" src="${pageContext.request.contextPath}/joinus/images/btnJoin.png" /></a>
+								</li>
 							</ul>
 						</fieldset>
 					</form>

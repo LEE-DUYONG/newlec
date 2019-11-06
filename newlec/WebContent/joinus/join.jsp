@@ -8,7 +8,7 @@
 					<h2>회원가입</h2>
 					<h3 class="hidden">방문페이지 로그</h3>
 					<p id="breadscrumb" class="block_hlist clear">
-						<img alt="Step1 개인정보 등록" src="${pageContext.request.contextPath}/images/step2.png" />
+						<img alt="Step1 개인정보 등록" src="${pageContext.request.contextPath}/joinus/images/step2.png" />
 					</p>
 					<h3 class="hidden">회원가입 폼</h3>
 					<div id="join-form" class="join-form margin-large">
@@ -48,8 +48,8 @@
 						<dl class="join-form-row">
 							<dt class="join-form-title">핸드폰 번호</dt>
 							<dd class="join-form-data">
-								<input type="text" name="cphone" /><span>[대시(-)를 포함할 것:
-									예) 010-3456-2934]</span>
+								<input type="text" name="cphone" />
+								<span>[대시(-)를 포함할 것: 예) 010-3456-2934]</span>
 							</dd>
 						</dl>
 						<dl class="join-form-row">
@@ -58,7 +58,6 @@
 								<input type="text" name="email" />
 							</dd>
 						</dl>
-						
 					</div>
 				</form>
 				<div id="buttonLine">
