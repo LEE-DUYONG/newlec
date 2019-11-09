@@ -18,14 +18,14 @@ public class OracleMemberDao implements MemberDao {
 	public OracleMemberDao() {							
 		sqlsession = sessionFactory.openSession(true); // sqlSession 얻어오기			
 	}							
-								
+	
 	@Override							
 	public String retrieveDate() throws Exception {							
 		// TODO Auto-generated method stub				
-								
+		
 		String result = sqlsession.selectOne("selectDate");						
-		log.info(result);						
-		return result;						
+		log.info(result);
+		return result;
 	}							
 								
 	@Override							
@@ -36,12 +36,21 @@ public class OracleMemberDao implements MemberDao {
 	}							
 								
 	@Override							
-	public void insertMember(MemberVO member) {							
+	public int insertMember(MemberVO member) {							
 		// TODO Auto-generated method stub						
 								
 		log.info("★멤버★ : " + member);						
 								
-		sqlsession.insert("insertMember", member);						
+		return sqlsession.insert("insertNewMember", member);						
+	}
+
+	@Override
+	public int findMemberId(String id) throws Exception {
+		// TODO Auto-generated method stub
+		
+		int result = sqlsession.selectOne("selectUserId", id);
+		System.out.println("result:"+result);
+		return result;
 	}							
 								
 }								

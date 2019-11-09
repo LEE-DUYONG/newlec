@@ -14,6 +14,8 @@ import org.apache.log4j.Logger;
 import com.newlec.controller.Controller;
 import com.newlec.controller.IndexController;
 import com.newlec.controller.JoinController;
+import com.newlec.controller.JoinIdCkController;
+import com.newlec.controller.JoinProcController;
 import com.newlec.controller.LoginController;
 import com.newlec.controller.NoticeDelController;
 import com.newlec.controller.NoticeDetailController;
@@ -73,6 +75,24 @@ public class DispatcherServlet extends HttpServlet {
 			Controller joinController = new JoinController();
 			try {
 				returnURL = (String) joinController.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(requestURI.equals(ctxPath + "/joinProc.yjc")) { // 회원가입 실행
+			System.out.println("joinProc");
+			Controller joinProcController = new JoinProcController();
+			try {
+				returnURL = (String) joinProcController.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(requestURI.equals(ctxPath + "/joinIdCk.yjc")) { // 회원가입 - 아이디 중복 확인
+			System.out.println("joinIdCk");
+			Controller joinIdCkController = new JoinIdCkController();
+			try {
+				joinIdCkController.execute(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

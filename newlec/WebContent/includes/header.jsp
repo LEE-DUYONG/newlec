@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>notice</title>
 <link href="${pageContext.request.contextPath}/customer/notice.css" type="text/css" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 </head>
 <body>
 	<div id="header">

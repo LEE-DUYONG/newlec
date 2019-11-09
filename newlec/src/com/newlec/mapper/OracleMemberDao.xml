@@ -10,6 +10,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from DUAL
 	</select>
 	
+	<!-- 회원 아이디 찾기 -->
+	<select id="selectUserId" parameterType="com.newlec.domain.NoticeBoardVO" resultType="int">
+	<![CDATA[
+		select count(id) 
+		from TBL_MEMBER
+		where id = #{id}
+	]]>
+	</select>
+	
 	<!-- 회원 리스트 조회 -->
 	<select id="getListMember" resultType="com.newlec.domain.MemberVO">
 	<![CDATA[
@@ -19,7 +28,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 
 	<!-- 회원 등록 -->
-	<insert id="insertMember" parameterType="com.newlec.domain.MemberVO">
+	<insert id="insertNewMember" parameterType="com.newlec.domain.MemberVO">
 		insert into TBL_MEMBER (
 			ID, PASSWORD, USERNAME, SEX, PHONE_NUMBER, EMAIL
 		)
