@@ -33,7 +33,7 @@ public class TestController implements Controller {
 		member.setPassword(tempId);								
 		member.setUserName("고인돌");								
 		member.setSex('F');								
-		member.setPhoneNumber("010-1111-2222");								
+		member.setPhone_number("010-1111-2222");								
 		member.setEmail(tempId + "@" + "yjc.co.jp");								
 										
 		log.info("member : " + member);								

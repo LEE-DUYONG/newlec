@@ -6,7 +6,7 @@ public class MemberVO {
 	private String password;
 	private String userName;
 	private char sex;
-	private String phoneNumber;
+	private String phone_number;
 	private String email;
 	
 	public String getId() {
@@ -33,11 +33,11 @@ public class MemberVO {
 	public void setSex(char sex) {
 		this.sex = sex;
 	}
-	public String getPhoneNumber() {
-		return phoneNumber;
+	public String getPhone_number() {
+		return phone_number;
 	}
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void setPhone_number(String phone_number) {
+		this.phone_number = phone_number;
 	}
 	public String getEmail() {
 		return email;
@@ -48,7 +48,7 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [id=" + id + ", password=" + password + ", userName=" + userName + ", sex=" + sex
-				+ ", phoneNumber=" + phoneNumber + ", email=" + email + "]";
+				+ ", phone_number=" + phone_number + ", email=" + email + "]";
 	}
 	
 }

@@ -20,7 +20,7 @@ public class JoinProcController implements Controller {
 		memberVO.setPassword(request.getParameter("pwd"));
 		memberVO.setUserName(request.getParameter("name"));
 		memberVO.setSex(request.getParameter("gender").charAt(0)); // F or M 한글자
-		memberVO.setPhoneNumber(request.getParameter("cphone"));
+		memberVO.setPhone_number(request.getParameter("cphone"));
 		memberVO.setEmail(request.getParameter("email"));
 		
 		System.out.println(memberVO.toString());
@@ -33,12 +33,12 @@ public class JoinProcController implements Controller {
 		}
 		
 		
-		if(result == 0) {
-			System.out.println("가입 실패");
-			return "dispatcher:/joinus/join.jsp";
-		} else {
+		if(result == 1) {
 			System.out.println("가입 성공");
 			return "dispatcher:/joinus/login.jsp";
+		} else {
+			System.out.println("가입 실패");
+			return "dispatcher:/joinus/join.jsp";
 		}
 		
 	}

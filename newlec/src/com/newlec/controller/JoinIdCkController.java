@@ -24,7 +24,6 @@ public class JoinIdCkController  implements Controller {
 		response.getWriter().write(jobj.toString());
 		
 		
-		return null;
-		
+		return "dispatcher:/joinus/join.jsp";
 	}
 }

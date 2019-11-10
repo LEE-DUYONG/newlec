@@ -6,6 +6,7 @@ public interface MemberDao {
 	String retrieveDate() throws Exception;
 	int findMemberId(String id) throws Exception;
 	void getMemberList();
+	MemberVO getMemberLoginInfo(MemberVO member);
 	int insertMember(MemberVO member);
 	
 	

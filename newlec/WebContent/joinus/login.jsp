@@ -13,7 +13,7 @@
 				</ul>
 				<h3 class="hidden">회원가입 폼</h3>
 				<div id="join-form" class="join-form margin-large">
-					<form action="" method="post">
+					<form action="loginProc.yjc" method="post">
 						<fieldset>
 							<legend class="hidden">로그인 폼</legend>
 							<h3>

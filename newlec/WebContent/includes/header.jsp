@@ -31,8 +31,16 @@
 			<h3 class="hidden">로그인메뉴</h3>
 			<ul id="loginmenu" class="block_hlist">
 				<li><a href="index.yjc">HOME</a></li>
-				<li><a href="login.yjc">로그인</a></li>
-				<li><a href="join.yjc">회원가입</a></li>
+				<c:choose>
+					<c:when test="${sessionScope.loginDTO.userName != null}">
+						<li>${sessionScope.loginDTO.userName}님 환영합니다!</li>
+						<li><a href="logout.yjc">로그아웃</a></li>
+					</c:when>
+					<c:otherwise>
+						<li><a href="login.yjc">로그인</a></li>
+						<li><a href="join.yjc">회원가입</a></li>
+					</c:otherwise>
+				</c:choose>
 			</ul>
 			<h3 class="hidden">회원메뉴</h3>
 			<ul id="membermenu" class="clear">

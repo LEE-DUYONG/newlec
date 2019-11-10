@@ -1,6 +1,7 @@
 package com.newlec.service;
 
 import com.newlec.dao.OracleMemberDao;
+import com.newlec.domain.LoginDTO;
 import com.newlec.domain.MemberVO;
 
 public class UserServiceImpl implements UserService {
@@ -15,11 +16,20 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public void loginUser() throws Exception { // 로그인
+	public LoginDTO loginUser(MemberVO memberVO) throws Exception { // 로그인
 		// TODO Auto-generated method stub
 		
 		// com.newlec.dao에서 로그인DAO를 사용해 유저 ID/PW를 확인 후 정보를 받아 세션에 넣는다.
 		// new OracleTestDao().getMemberList(); 와 같은 형식
+		LoginDTO loginDTO = new LoginDTO();
+		
+		OracleMemberDao oracleMemberDao = new OracleMemberDao();
+		memberVO = oracleMemberDao.getMemberLoginInfo(memberVO);
+		
+		loginDTO.setId(memberVO.getId());
+		loginDTO.setUserName(memberVO.getUserName());
+		
+		return loginDTO;
 	}
 
 	@Override

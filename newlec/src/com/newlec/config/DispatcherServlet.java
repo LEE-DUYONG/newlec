@@ -17,6 +17,8 @@ import com.newlec.controller.JoinController;
 import com.newlec.controller.JoinIdCkController;
 import com.newlec.controller.JoinProcController;
 import com.newlec.controller.LoginController;
+import com.newlec.controller.LoginProcController;
+import com.newlec.controller.LogoutController;
 import com.newlec.controller.NoticeDelController;
 import com.newlec.controller.NoticeDetailController;
 import com.newlec.controller.NoticeEditController;
@@ -102,6 +104,24 @@ public class DispatcherServlet extends HttpServlet {
 			Controller loginController = new LoginController();
 			try {
 				returnURL = (String) loginController.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(requestURI.equals(ctxPath + "/loginProc.yjc")) { // 로그인 실행
+			System.out.println("loginProc");
+			Controller loginProcController = new LoginProcController();
+			try {
+				returnURL = (String) loginProcController.execute(request, response);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else if(requestURI.equals(ctxPath + "/logout.yjc")) { // 로그아웃
+			System.out.println("logout");
+			Controller logoutController = new LogoutController();
+			try {
+				returnURL = (String) logoutController.execute(request, response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
