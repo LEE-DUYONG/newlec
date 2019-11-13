@@ -162,13 +162,13 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public int noticeRegProc(NoticeBoardVO notice) throws Exception {
+	public int noticeRegProc(NoticeBoardVO notice, String userId) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("noticeRegProc");
 		
 		
 		// 데이터 수동 작성
-		notice.setMemberId("ow1l7");
+		notice.setMemberId(userId);
 		
 		// Dao 호출
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
@@ -186,17 +186,14 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public int newNoticeNum() throws Exception {
+	public int newNoticeNum(String userid) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("curNoticeNum");
-		
-		// 임시 수동 memberId
-		String memberId = "ow1l7";
 		
 		// 해당유저의 최신 등록한 글 번호 가져오기
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
 		
-		return noticeBoardDao.getNewBoardNum(memberId);
+		return noticeBoardDao.getNewBoardNum(userid);
 	}
 
 }

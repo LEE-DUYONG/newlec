@@ -30,7 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 로그인 회원 정보 조회 -->
 	<select id="getMemberLoginInfo" resultType="com.newlec.domain.MemberVO">
 	<![CDATA[
-		select ID, USERNAME
+		select ID, id ||'('|| username ||')' "username"
 		from TBL_MEMBER
 		where id = #{id} and password = #{password}
 	]]>

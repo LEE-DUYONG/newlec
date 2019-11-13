@@ -38,7 +38,7 @@
 						<c:forEach var="notice" items="${noticeList}" varStatus="status">
 						    <tr>
 								<td class="seq">${notice.num}</td>
-								<td class="title"><a href="noticeDetail.yjc?page=1&contentNum=${notice.num}">${notice.title}</a></td>
+								<td class="title"><a href="noticeDetail.yjc?page=${pageVO.curPage}&contentNum=${notice.num}">${notice.title}</a></td>
 								<td class="writer">${notice.memberId}</td>
 								<td class="regdate">${notice.createdDate}</td>
 								<td class="hit">${notice.hit}</td>
@@ -47,7 +47,14 @@
 					</tbody>
 				</table>
 				<p class="article-comment margin-small">
-					<a class="btn-write button" href="noticeReg.yjc?page=1"></a>
+					<c:choose>
+						<c:when test="${empty sessionScope.loginDTO.userName}">
+							<a class="btn-write button" href="" onclick="alert('로그인을 해주세요.');return false;"></a>
+						</c:when>
+						<c:otherwise>
+							<a class="btn-write button" href="noticeReg.yjc?page=${pageVO.curPage}"></a>
+						</c:otherwise>
+					</c:choose>
 				</p>
 				<p id="cur-page" class="margin-small">
 					<span class="strong">${pageVO.curPage}</span> / ${pageVO.totalPage} page

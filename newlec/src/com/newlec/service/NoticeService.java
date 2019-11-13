@@ -14,7 +14,7 @@ public interface NoticeService {
 	void noticeHit(int contentNum) throws Exception;
 	int noticeDel(int contentNum) throws Exception;
 	int noticeEdit(NoticeBoardVO notice) throws Exception;
-	int noticeRegProc(NoticeBoardVO notice) throws Exception;
-	int newNoticeNum() throws Exception;
+	int noticeRegProc(NoticeBoardVO notice, String userId) throws Exception;
+	int newNoticeNum(String userid) throws Exception;
 	PageVO noticePaging(int curPage) throws Exception;
 }

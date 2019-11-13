@@ -2,7 +2,9 @@ package com.newlec.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
+import com.newlec.domain.LoginDTO;
 import com.newlec.domain.NoticeBoardVO;
 import com.newlec.service.NoticeServiceImpl;
 
@@ -23,18 +25,22 @@ public class NoticeRegProcController implements Controller {
 		NoticeServiceImpl noticeServiceImpl = new NoticeServiceImpl();
 
 		int result = 0;
-		
+		HttpSession  session = request.getSession(true);
+		LoginDTO loginDTO = (LoginDTO) session.getAttribute("loginDTO");
+		System.out.println(loginDTO.getId());
+		System.out.println(loginDTO.getId().substring(loginDTO.getId().lastIndexOf("(")+1));
+		String userid = loginDTO.getId().substring(loginDTO.getId().lastIndexOf("(")+1);
 		// 게시글 번호
 		int contentNum = 0;
 		try {
 			//게시글 작성
 			// 나중에 게시글 유저 체크 추가
-			result = noticeServiceImpl.noticeRegProc(notice);
+			result = noticeServiceImpl.noticeRegProc(notice, userid);
 //			System.out.println("NoticeRegProcController - noticeRegProc - result : "+result);
 			
 			// 유저의 가장 최신 게시글 번호 받아오기
 			// result = noticeServiceImpl.curNoticeNum(userId);
-			contentNum = noticeServiceImpl.newNoticeNum();
+			contentNum = noticeServiceImpl.newNoticeNum(userid);
 			
 			notice = noticeServiceImpl.noticeDetail(contentNum);
 			
