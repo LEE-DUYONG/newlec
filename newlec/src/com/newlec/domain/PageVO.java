@@ -1,6 +1,7 @@
 package com.newlec.domain;
 
 public class PageVO {
+	
 	int startRow;
 	int endRow;
 	int totalPage;

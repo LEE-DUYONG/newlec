@@ -42,6 +42,8 @@ public class DispatcherServlet extends HttpServlet {
 	 */
 	
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		// UTF-8 설정
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		
@@ -53,7 +55,7 @@ public class DispatcherServlet extends HttpServlet {
 		
 		String returnURL = null;
 		
-		if(requestURI.equals(ctxPath + "/test.yjc")) { // 테스트페이지
+		if(requestURI.equals(ctxPath + "/test.yjc")) { // 테스트 페이지
 			log.info("test");
 			Controller testController = new TestController();
 			
@@ -63,7 +65,7 @@ public class DispatcherServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		} else if(requestURI.equals(ctxPath + "/index.yjc")) { // 메인페이지
+		} else if(requestURI.equals(ctxPath + "/index.yjc")) { // 메인 페이지
 			System.out.println("index");
 			Controller indexController = new IndexController();
 			try {
@@ -191,19 +193,10 @@ public class DispatcherServlet extends HttpServlet {
 			}
 		}
 		
-		/*
-		 * if(requestURI.equals(ctxPath + "/customer/notice.jsp")){ }else
-		 * if(requestURI.equals(ctxPath+"/customer/noticeDetail.jsp")){ }else
-		 * if(requestURI.equals(ctxPath+"/customer/noticeReg.jsp")){ }else
-		 * if(requestURI.equals(ctxPath+"/customer/noticeEdit.jsp")){ }else
-		 * if(requestURI.equals(ctxPath+"/customer/noticeDel.jsp")){ }
-		 */
-
 		// Move to View Page Process
 		if(returnURL != null && !"".equals(returnURL)){
 			StringTokenizer urlForToken = new StringTokenizer(returnURL,":");
 			String url = urlForToken.nextToken();
-			//System.out.println("urlForToken.nextToken() : "+urlForToken.nextToken());
 			
 			if("dispatcher".equals(url)){
 				request.getRequestDispatcher(urlForToken.nextToken()).forward(request, response);

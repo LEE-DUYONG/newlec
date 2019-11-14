@@ -65,20 +65,20 @@
 							<c:when test="${pageVO.curPage == 1}"></c:when>
 							<c:otherwise>
 								<p id="btnPrev">
-									<a class="button btn-prev" href="notice.yjc?curPage=${pageVO.curPage-1}">이전</a>
+									<a class="button btn-prev" href="notice.yjc?page=${pageVO.curPage-1}">이전</a>
 								</p>
 							</c:otherwise>
 						</c:choose>
 						<ul>
 							<c:forEach var="i" begin="${pageVO.startPage}" end="${pageVO.lastPage}" step="1" >
-								<li><a class="strong" href="notice.yjc?curPage=${i}">${i}</a></li>
+								<li><a class="strong" href="notice.yjc?page=${i}">${i}</a></li>
 							</c:forEach>
 						</ul>
 						<c:choose>
 							<c:when test="${pageVO.curPage == pageVO.totalPage}"></c:when>
 							<c:otherwise>
 								<p id="btnNext">
-									<a class="button btn-next" href="notice.yjc?curPage=${pageVO.curPage+1}">다음</a>
+									<a class="button btn-next" href="notice.yjc?page=${pageVO.curPage+1}">다음</a>
 								</p>
 							</c:otherwise>
 						</c:choose>

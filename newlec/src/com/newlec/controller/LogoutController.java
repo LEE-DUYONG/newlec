@@ -10,11 +10,11 @@ public class LogoutController implements Controller {
 	public Object execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("LoginProcController");
-
+		
 		HttpSession  session = request.getSession(true);
 		session.invalidate();
 		
-		return "dispatcher:/index.jsp";
+		return "dispatcher:index.jsp";
 	}
-
+	
 }

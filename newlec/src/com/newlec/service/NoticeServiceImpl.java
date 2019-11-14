@@ -12,7 +12,7 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public List<NoticeBoardVO> noticeList(PageVO pageVO) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("NoticeServiceImpl.noticeList");
+		System.out.println("noticeList");
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
 		
 		// 게시판 리스트 전부
@@ -21,15 +21,13 @@ public class NoticeServiceImpl implements NoticeService {
 		// 페이징 처리한 게시판 리스트
 		List<NoticeBoardVO> noticeList = noticeBoardDao.getBoardList(pageVO);
 		
-//		System.out.println("noticeList - "+noticeList.toString());
-		
 		return noticeList;
 	}
-
+	
 	@Override
 	public PageVO noticePaging(int curPage) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("NoticeServiceImpl.noticePaging");
+		System.out.println("noticePaging");
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
 		PageVO pageVO = new PageVO();
 		
@@ -77,67 +75,49 @@ public class NoticeServiceImpl implements NoticeService {
 	@Override
 	public NoticeBoardVO noticeDetail(int contentNum) throws Exception {
 		// TODO Auto-generated method stub
-		// 리턴타입 메소드명(받을 입력 파라미터)
-		
-		System.out.println("NoticeServiceImpl.noticeDetail");
-		
-		// contentNum를 이용해 게시글 불러오기
+		System.out.println("noticeDetail");
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
-		
+		// contentNum를 이용해 게시글 불러오기
 		return noticeBoardDao.getBoardDetail(contentNum);
 	}
-
+	
 	@Override
-	public int noticeCurRownum(int contentNum) throws Exception {
+	public int noticeCurRownum(int contentNum) throws Exception { // 현재 게시글의 rownum 불러오기
 		// TODO Auto-generated method stub
+		System.out.println("noticeCurRownum");
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
-		
 		return noticeBoardDao.getCurRownum(contentNum);
 	}
-
+	
 	@Override
-	public NoticeBoardVO noticeNextTitle(int rownum) throws Exception {
+	public NoticeBoardVO noticeNextTitle(int rownum) throws Exception { // rownum의 다음 게시글 제목 불러오기
 		// TODO Auto-generated method stub
-		System.out.println("NoticeServiceImpl.noticeNextTitle");
-		
-		// contentNum의 rownum - 1로 다음 게시글 불러오기(contentNum으로 불러오면 삭제되었을 경우 불러오기 불가능)
+		System.out.println("noticeNextTitle");
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
-		
 		return noticeBoardDao.getBoardTitle(rownum - 1);
 	}
-
+	
 	@Override
-	public NoticeBoardVO noticePreviousTitle(int rownum) throws Exception {
+	public NoticeBoardVO noticePreviousTitle(int rownum) throws Exception { // rownum의 이전 게시글 제목 불러오기
 		// TODO Auto-generated method stub
-		System.out.println("NoticeServiceImpl.noticePreviousTitle");
-		
-		// contentNum의 rownum + 1로 이전 게시글 불러오기(contentNum으로 불러오면 삭제되었을 경우 불러오기 불가능)
+		System.out.println("noticePreviousTitle");
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
-		
 		return noticeBoardDao.getBoardTitle(rownum + 1);
 	}
-
+	
 	@Override
-	public void noticeHit(int contentNum) throws Exception {
+	public void noticeHit(int contentNum) throws Exception {// 조회수 +1
 		// TODO Auto-generated method stub
-		System.out.println("NoticeServiceImpl.noticeHit");
-		
-		// 조회수 +1
+		System.out.println("noticeHit");
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
 		noticeBoardDao.upCountHits(contentNum);
-		System.out.println("NoticeServiceImpl.noticeHit 종료");
 	}
 	
 	@Override
 	public int noticeDel(int contentNum) throws Exception {
 		// TODO Auto-generated method stub
-		
-		// 나중에 유저이름체크도 추가
-
-		System.out.println("noticeDel-contentNum:"+contentNum);
+		System.out.println("noticeDel");
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
-		
-		
 		return noticeBoardDao.deleteBoard(contentNum);
 	}
 	
@@ -145,55 +125,27 @@ public class NoticeServiceImpl implements NoticeService {
 	public int noticeEdit(NoticeBoardVO notice) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("noticeEdit");
-		System.out.println("바뀐 내용 /// num = "+notice.getNum()+" title = "+notice.getTitle()+" content = "+notice.getContent());
-
-		// notice의 정보를 DAO로 수정
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
-		
 		int result = noticeBoardDao.updateBoard(notice);
-		
-		if(result == 0) {
-			System.out.println("게시글 수정 실패");
-		} else {
-			System.out.println("게시글 수정 성공!");
-		}
-		
 		return result;
 	}
-
+	
 	@Override
 	public int noticeRegProc(NoticeBoardVO notice, String userId) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("noticeRegProc");
-		
-		
-		// 데이터 수동 작성
 		notice.setMemberId(userId);
-		
-		// Dao 호출
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
-		
-
 		int result = noticeBoardDao.insertBoard(notice);
-		
-		if(result == 0) {
-			System.out.println("게시글 작성 실패");
-		} else {
-			System.out.println("게시글 작성 성공!");
-		}
-		
 		return result;
 	}
-
+	
 	@Override
-	public int newNoticeNum(String userid) throws Exception {
+	public int newNoticeNum(String userid) throws Exception { // 해당유저의 최신 등록한 글 번호 가져오기
 		// TODO Auto-generated method stub
 		System.out.println("curNoticeNum");
-		
-		// 해당유저의 최신 등록한 글 번호 가져오기
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
-		
 		return noticeBoardDao.getNewBoardNum(userid);
 	}
-
+	
 }

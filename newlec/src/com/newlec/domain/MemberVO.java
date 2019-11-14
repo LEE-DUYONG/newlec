@@ -1,7 +1,7 @@
 package com.newlec.domain;
 
 public class MemberVO {
-
+	
 	private String id;
 	private String password;
 	private String userName;
@@ -45,6 +45,7 @@ public class MemberVO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+	
 	@Override
 	public String toString() {
 		return "MemberVO [id=" + id + ", password=" + password + ", userName=" + userName + ", sex=" + sex

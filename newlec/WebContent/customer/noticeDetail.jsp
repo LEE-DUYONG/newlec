@@ -31,7 +31,7 @@
 					<dl class="article-detail-row">
 						<dt class="article-detail-title">첨부파일</dt>
 						<dd class="article-detail-data">
-							<a href="">flag.png</a>
+							<!-- <a href="">flag.png</a> -->
 						</dd>
 					</dl>
 
@@ -40,11 +40,11 @@
 					</div>
 				</div>
 				<p class="article-comment margin-small">
-					<a class="btn-list button" href="notice.yjc?page=${pageVO.curPage}"></a>
+					<a class="btn-list button" href="notice.yjc?page=${page}"></a>
 					<c:choose>
 						<c:when test="${notice.memberId == sessionScope.loginDTO.userName}">
-							<a class="btn-edit button" href="noticeEdit.yjc?page=${pageVO.curPage}&contentNum=${notice.num}"></a>
-							<a class="btn-del button" href="noticeDel.yjc?page=${pageVO.curPage}&contentNum=${notice.num}"></a>
+							<a class="btn-edit button" href="noticeEdit.yjc?page=${page}&contentNum=${notice.num}"></a>
+							<a class="btn-del button" href="noticeDel.yjc?page=${page}&contentNum=${notice.num}"></a>
 						</c:when>
 						<c:otherwise>
 							<a class="btn-edit button" href="" onclick="alert('회원님의 게시글이 아닙니다.');return false;"></a>
@@ -54,7 +54,7 @@
 				</p>
 				<div class="margin-small" style="border-top: 1px solid #dfdfdf;">
 					<dl class="article-detail-row">
-						<dt class="article-detail-title"><a href="noticeDetail.yjc?page=${pageVO.curPage}&contentNum=${nextTitle.num}">▲ 다음글</a></dt>
+						<dt class="article-detail-title"><a href="noticeDetail.yjc?page=${page}&contentNum=${nextTitle.num}">▲ 다음글</a></dt>
 						<dd class="article-detail-data">
 							<c:choose>
 								<c:when test="${empty nextTitle}">
@@ -67,7 +67,7 @@
 						</dd>
 					</dl>
 					<dl class="article-detail-row">
-						<dt class="article-detail-title"><a href="noticeDetail.yjc?page=${pageVO.curPage}&contentNum=${previousTitle.num}">▼ 이전글</a></dt>
+						<dt class="article-detail-title"><a href="noticeDetail.yjc?page=${page}&contentNum=${previousTitle.num}">▼ 이전글</a></dt>
 						<dd class="article-detail-data">
 							<c:choose>
 								<c:when test="${empty previousTitle}">

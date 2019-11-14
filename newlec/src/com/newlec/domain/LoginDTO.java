@@ -1,9 +1,10 @@
 package com.newlec.domain;
 
 public class LoginDTO {
-
+	
 	private String id;
 	private String userName;
+	
 	public String getId() {
 		return id;
 	}
@@ -16,8 +17,10 @@ public class LoginDTO {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+	
 	@Override
 	public String toString() {
 		return "LoginDTO [id=" + id + ", userName=" + userName + "]";
 	}
+	
 }

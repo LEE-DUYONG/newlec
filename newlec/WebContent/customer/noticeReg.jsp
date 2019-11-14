@@ -31,7 +31,7 @@
 					</div>
 					<p class="article-comment margin-small">
 						<input class="btn-save button" type="submit"/>
-						<a class="btn-cancel button" href="notice.yjc?page=1"></a>
+						<a class="btn-cancel button" href="notice.yjc?page=${page}"></a>
 					</p>
 				</form>
 			</div>

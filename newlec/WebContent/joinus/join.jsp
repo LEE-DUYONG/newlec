@@ -74,8 +74,6 @@ var idck = 0;
 
 //btnCheckUid 버튼을 클릭했을 때 
 $("#btnCheckUid").click(function(){
-//	alert("btnCheckUid");
-/* 	alert($('#uid').val()); */
 	console.log();
 	$.ajax({
         url: 'joinIdCk.yjc',
@@ -85,8 +83,6 @@ $("#btnCheckUid").click(function(){
         type: 'post',
         dataType: "json",
 		success : function(data) {
-			// 통신이 성공적으로 이루어졌을 때 이 함수를 타게 된다.
-//			alert("성공:"+data.result);
 			if( "OK" == data.result ) {
 				alert("사용 가능한 아이디입니다.");
 				idck = 1;

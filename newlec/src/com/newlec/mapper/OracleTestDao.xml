@@ -17,7 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		from TBL_MEMBER
 	]]>
 	</select>
-
+	
 	<!-- 회원 등록 -->
 	<insert id="insertMember" parameterType="com.newlec.domain.MemberVO">
 		insert into TBL_MEMBER (
@@ -27,5 +27,5 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			#{id}, #{password}, #{userName}, #{sex}, #{phoneNumber}, #{email}
 		)
 	</insert>
-
+	
 </mapper>
