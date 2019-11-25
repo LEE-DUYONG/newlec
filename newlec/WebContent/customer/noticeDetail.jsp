@@ -40,11 +40,11 @@
 					</div>
 				</div>
 				<p class="article-comment margin-small">
-					<a class="btn-list button" href="notice.yjc?page=${page}"></a>
+					<a class="btn-list button" href="notice.yjc?page=${page}&f=${f}&q=${q}"></a>
 					<c:choose>
 						<c:when test="${notice.memberId == sessionScope.loginDTO.userName}">
-							<a class="btn-edit button" href="noticeEdit.yjc?page=${page}&contentNum=${notice.num}"></a>
-							<a class="btn-del button" href="noticeDel.yjc?page=${page}&contentNum=${notice.num}"></a>
+							<a class="btn-edit button" href="noticeEdit.yjc?page=${page}&contentNum=${notice.num}&f=${f}&q=${q}"></a>
+							<a class="btn-del button" href="noticeDel.yjc?page=${page}&contentNum=${notice.num}&f=${f}&q=${q}"></a>
 						</c:when>
 						<c:otherwise>
 							<a class="btn-edit button" href="" onclick="alert('회원님의 게시글이 아닙니다.');return false;"></a>
@@ -54,7 +54,7 @@
 				</p>
 				<div class="margin-small" style="border-top: 1px solid #dfdfdf;">
 					<dl class="article-detail-row">
-						<dt class="article-detail-title"><a href="noticeDetail.yjc?page=${page}&contentNum=${nextTitle.num}">▲ 다음글</a></dt>
+						<dt class="article-detail-title"><a href="noticeDetail.yjc?page=${page}&contentNum=${nextTitle.num}&f=${f}&q=${q}">▲ 다음글</a></dt>
 						<dd class="article-detail-data">
 							<c:choose>
 								<c:when test="${empty nextTitle}">
@@ -67,7 +67,7 @@
 						</dd>
 					</dl>
 					<dl class="article-detail-row">
-						<dt class="article-detail-title"><a href="noticeDetail.yjc?page=${page}&contentNum=${previousTitle.num}">▼ 이전글</a></dt>
+						<dt class="article-detail-title"><a href="noticeDetail.yjc?page=${page}&contentNum=${previousTitle.num}&f=${f}&q=${q}">▼ 이전글</a></dt>
 						<dd class="article-detail-data">
 							<c:choose>
 								<c:when test="${empty previousTitle}">

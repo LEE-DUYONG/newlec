@@ -35,6 +35,13 @@ public class OracleNoticeBoardDao implements NoticeBoardDao {
 	}
 	
 	@Override
+	public List<NoticeBoardVO> getBoardSearchList(PageVO pageVO) { // 페이징 처리되어 해당 페이지의 게시글만 불러오기
+		// TODO Auto-generated method stub
+		log.info("[getBoardSearchList] : " + pageVO);
+		return sqlsession.selectList("getPagingSearchBoardList", pageVO);
+	}
+	
+	@Override
 	public int insertBoard(NoticeBoardVO noticeBoard) { // 새로운 게시글 작성
 		// TODO Auto-generated method stub
 		log.info("[insertBoard] : " + noticeBoard);
@@ -99,6 +106,15 @@ public class OracleNoticeBoardDao implements NoticeBoardDao {
 		// TODO Auto-generated method stub
 		log.info("[getBoardCount] : 총 게시물 수 조회");
 		return sqlsession.selectOne("getBoardCount");
+	}
+	
+	@Override
+	public int getBoardSearchCount(PageVO pageVO) { // 검색한 총 게시물 수
+		// TODO Auto-generated method stub
+		log.info("[getBoardSearchCount] - 검색한 SearchCategory : "+pageVO.getSearchCategory());
+		log.info("[getBoardSearchCount] - 검색한 Keyword : "+pageVO.getSearchKeyword());
+		int result = sqlsession.selectOne("getBoardSearchCount", pageVO);
+		return result;
 	}
 	
 }

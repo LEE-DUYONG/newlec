@@ -82,7 +82,21 @@ public class NoticeEditProcController implements Controller {
 		System.out.println("previousTitle : "+previousTitle);
 		request.setAttribute("previousTitle", previousTitle);
 		
-		return "sendRedirect:/newlec/noticeDetail.yjc?page="+curPage+"&contentNum="+contentNum;
+		// 검색 카테고리 TITLE or CONTENT
+		String searchCategory = "TITLE";
+		if(request.getParameter("f") != null) {
+			searchCategory = request.getParameter("f");
+			System.out.println("searchCategory:"+searchCategory);
+		}
+		
+		// 검색어
+		String searchKeyword = null;
+		if(request.getParameter("q") != null) {
+			searchKeyword = request.getParameter("q");
+			System.out.println("searchKeyWord:"+searchKeyword);
+		}
+		
+		return "sendRedirect:/newlec/noticeDetail.yjc?page="+curPage+"&contentNum="+contentNum+"&f="+searchCategory+"&q="+searchKeyword;
 	}
 	
 }

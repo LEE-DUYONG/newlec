@@ -15,7 +15,7 @@
 							공지사항수정
 						</li>
 					</ul>
-					<form action="noticeEditProc.yjc?page=1&contentNum=${notice.num}" method="post">
+					<form action="noticeEditProc.yjc?page=1&contentNum=${notice.num}&f=${f}&q=${q}" method="post">
 					<div id="notice-article-detail" class="article-detail margin-large" >						
 						<dl class="article-detail-row">
 							<dt class="article-detail-title">
@@ -55,9 +55,9 @@
 						</div>
 					</div>
 					<p class="article-comment margin-small">
-						<!-- <a class="btn-save button" href="noticeEditProc.yjc?page=1&contentNum=${notice.num}">수정</a> -->	
+						<!-- <a class="btn-save button" href="noticeEditProc.yjc?page=1&contentNum=${notice.num}&f=${f}&q=${q}">수정</a> -->	
 						<input class="btn-save button" type="submit"/>
-						<a class="btn-cancel button" href="noticeDetail.yjc?page=${page}&contentNum=${notice.num}"></a>
+						<a class="btn-cancel button" href="noticeDetail.yjc?page=${page}&contentNum=${notice.num}&f=${f}&q=${q}"></a>
 					</p>		
 					</form>		
 				</div>				

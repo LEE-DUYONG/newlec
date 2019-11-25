@@ -30,6 +30,22 @@ public class NoticeDetailController implements Controller {
 			contentNum = Integer.parseInt(request.getParameter("contentNum"));
 		}
 		
+		// 검색 카테고리 TITLE or CONTENT
+		String searchCategory = "TITLE";
+		if(request.getParameter("f") != null) {
+			searchCategory = request.getParameter("f");
+			System.out.println("searchCategory:"+searchCategory);
+			request.setAttribute("f", searchCategory);
+		}
+		
+		// 검색어
+		String searchKeyword = null;
+		if(request.getParameter("q") != null) {
+			searchKeyword = request.getParameter("q");
+			System.out.println("searchKeyWord:"+searchKeyword);
+			request.setAttribute("q", searchKeyword);
+		}
+		
 		try {
 			// 게시판 조회수 hit +1
 			noticeServiceImpl.noticeHit(contentNum);

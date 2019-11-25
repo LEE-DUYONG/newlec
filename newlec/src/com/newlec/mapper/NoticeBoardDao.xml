@@ -20,8 +20,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			FROM ( SELECT ROWNUM rnum, NUM, TITLE, createdDate, HIT, memberId
 				FROM ( SELECT NUM, TITLE, CREATED_DATE　createdDate, HIT, a.id ||'('|| a.username ||')' memberId
 					FROM TBL_MEMBER a , TBL_NOTICE_BOARD b
-					WHERE a.id = b.MEMBER_ID order by b.num desc
+					WHERE a.id = b.MEMBER_ID
+					order by b.num desc
 				) c
+			) d
+			WHERE rnum <= #{endRow}
+		)
+		WHERE rnum >= #{startRow}
+	]]>
+	</select>
+	
+	<!-- 페이징 처리된 게시물 검색 조회 -->
+	<!-- 부등호 에러 해결 <![CDATA[]]> 
+	     #{} : num = ? 의 형태로  ?안에 바인드된 값을 입력
+         ${} : 값이 넣어진 쿼리 자체로 수행된다(상수). 컬럼명이 동적으로 바뀌어야 할 때 사용
+	-->
+	<select id="getPagingSearchBoardList" resultType="com.newlec.domain.NoticeBoardVO">
+	<![CDATA[
+		SELECT NUM, TITLE, createdDate, HIT, memberId 
+		FROM ( SELECT rnum, NUM, TITLE, createdDate, HIT, memberId
+			FROM ( SELECT ROWNUM rnum, NUM, TITLE, createdDate, HIT, memberId
+				FROM ( SELECT NUM, TITLE, CONTENT, CREATED_DATE　createdDate, HIT, a.id ||'('|| a.username ||')' memberId
+					FROM TBL_MEMBER a , TBL_NOTICE_BOARD b
+					WHERE a.id = b.MEMBER_ID
+					order by b.num desc
+				) c
+				where ${searchCategory} like '%' || #{searchKeyword} || '%'
 			) d
 			WHERE rnum <= #{endRow}
 		)
@@ -78,7 +102,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 게시글 rownum 가져오기 -->
 	<select id="getCurRownum" resultType="int">
 	select b.rnum
-	from (SELECT ROWNUM rnum, num
+	FROM (SELECT ROWNUM rnum, num
 		FROM ( SELECT num
 			FROM TBL_NOTICE_BOARD
 			ORDER BY NUM desc
@@ -90,7 +114,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- rownum으로 앞,뒤 게시물 제목 조회 -->
 	<select id="getBoardTitle" resultType="com.newlec.domain.NoticeBoardVO">
 		select num, title
-		from (SELECT ROWNUM rnum, num, title
+		FROM (SELECT ROWNUM rnum, num, title
 			FROM ( SELECT num, title
 				FROM TBL_NOTICE_BOARD
 				ORDER BY NUM desc
@@ -103,6 +127,16 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getBoardCount" resultType="int">
 		SELECT count(*)
 		FROM TBL_NOTICE_BOARD
+	</select>
+	
+	<!-- 게시글 총 갯수 조회 -->
+	<select id="getBoardSearchCount" resultType="int" parameterType="com.newlec.domain.PageVO">
+	<![CDATA[
+		SELECT count(*)
+		FROM (SELECT TITLE, CONTENT
+			FROM TBL_NOTICE_BOARD
+			WHERE ${searchCategory} like '%' || #{searchKeyword} || '%')
+	]]>
 	</select>
 	
 </mapper>

@@ -11,7 +11,7 @@
 					<li>고객센터</li>
 					<li>공지사항등록</li>
 				</ul>
-				<form action="noticeRegProc.yjc" method="post">
+				<form action="noticeRegProc.yjc&f=${f}&q=${q}" method="post">
 					<div id="notice-article-detail" class="article-detail margin-large">
 						<dl class="article-detail-row">
 							<dt class="article-detail-title">제목</dt>
@@ -31,7 +31,7 @@
 					</div>
 					<p class="article-comment margin-small">
 						<input class="btn-save button" type="submit"/>
-						<a class="btn-cancel button" href="notice.yjc?page=${page}"></a>
+						<a class="btn-cancel button" href="notice.yjc?page=${page}&f=${f}&q=${q}"></a>
 					</p>
 				</form>
 			</div>

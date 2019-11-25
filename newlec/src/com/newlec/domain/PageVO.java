@@ -8,6 +8,8 @@ public class PageVO {
 	int curPage;
 	int startPage;
 	int lastPage;
+	String searchCategory;
+	String searchKeyword;
 	
 	public int getStartRow() {
 		return startRow;
@@ -45,10 +47,23 @@ public class PageVO {
 	public void setLastPage(int lastPage) {
 		this.lastPage = lastPage;
 	}
-	
+	public String getSearchCategory() {
+		return searchCategory;
+	}
+	public void setSearchCategory(String searchCategory) {
+		this.searchCategory = searchCategory;
+	}
+	public String getSearchKeyword() {
+		return searchKeyword;
+	}
+	public void setSearchKeyword(String searchKeyword) {
+		this.searchKeyword = searchKeyword;
+	}
 	@Override
 	public String toString() {
 		return "PageVO [startRow=" + startRow + ", endRow=" + endRow + ", totalPage=" + totalPage + ", curPage="
-				+ curPage + ", startPage=" + startPage + ", lastPage=" + lastPage + "]";
+				+ curPage + ", startPage=" + startPage + ", lastPage=" + lastPage + ", searchCategory=" + searchCategory
+				+ ", searchKeyword=" + searchKeyword + "]";
 	}
+	
 }

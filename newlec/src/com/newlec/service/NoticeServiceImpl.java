@@ -19,24 +19,30 @@ public class NoticeServiceImpl implements NoticeService {
 //		List<NoticeBoardVO> noticeList = noticeBoardDao.getBoardList();
 		
 		// 페이징 처리한 게시판 리스트
-		List<NoticeBoardVO> noticeList = noticeBoardDao.getBoardList(pageVO);
+//		List<NoticeBoardVO> noticeList = noticeBoardDao.getBoardList(pageVO);
+		
+		// 페이징 처리한 게시판 리스트 중 키워드 검색
+		List<NoticeBoardVO> noticeList = noticeBoardDao.getBoardSearchList(pageVO);
 		
 		return noticeList;
 	}
 	
 	@Override
-	public PageVO noticePaging(int curPage) throws Exception {
+	public PageVO noticePaging(int curPage, PageVO pageVO) throws Exception {
 		// TODO Auto-generated method stub
 		System.out.println("noticePaging");
 		NoticeBoardDao noticeBoardDao = new OracleNoticeBoardDao();
-		PageVO pageVO = new PageVO();
 		
 		// curPage 현재페이지
 		int pageRow = 10; // 한 페이지당 출력하는 게시글 수
 		int startRow = 1; // 해당페이지의 시작 게시물
 		int endRow = 1; // 해당페이지의 종료 게시물
-		int noticeTotalRow = noticeBoardDao.getBoardCount(); // 게시글 전체 수
+//		int noticeTotalRow = noticeBoardDao.getBoardCount(); // 게시글 전체 수
+		int noticeTotalRow = noticeBoardDao.getBoardSearchCount(pageVO); // 검색한 게시글 전체 수
 		int noticeTotalPage = (int)Math.ceil((noticeTotalRow/(double)pageRow)); // 게시글 페이지 수
+		if(noticeTotalPage==0) {
+			noticeTotalPage=1;
+		}
 		System.out.println("페이지수 noticeTotalRow/pageRow:"+noticeTotalRow+"/"+pageRow+"="+noticeTotalRow/pageRow);
 		int startPage = 1; // 해당페이지의 시작 페이지 번호
 		int lastPage = 1; // 해당페이지의 마지막 페이지 번호

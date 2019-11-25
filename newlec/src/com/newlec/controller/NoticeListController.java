@@ -16,7 +16,7 @@ public class NoticeListController implements Controller {
 		// TODO Auto-generated method stub
 		System.out.println("NoticeListController");
 		List<NoticeBoardVO> noticeList = null;
-		PageVO pageVO = null;
+		PageVO pageVO = new PageVO();
 		NoticeServiceImpl noticeServiceImpl = new NoticeServiceImpl();
 		
 		// 현재 페이지
@@ -25,10 +25,31 @@ public class NoticeListController implements Controller {
 			curPage = Integer.parseInt(request.getParameter("page"));
 		}
 		request.setAttribute("page", curPage);
+
+		// 검색 카테고리 TITLE or CONTENT
+		String searchCategory = "TITLE";
+		if(request.getParameter("f") != null) {
+			searchCategory = request.getParameter("f");
+			System.out.println("searchCategory:"+searchCategory);
+			request.setAttribute("f", searchCategory);
+		}
+		
+		// 검색어
+		String searchKeyword = null;
+		if(request.getParameter("q") != null) {
+			searchKeyword = request.getParameter("q");
+			System.out.println("searchKeyWord:"+searchKeyword);
+			request.setAttribute("q", searchKeyword);
+		}
 		
 		try {
+			
+			// 검색어 및 카테고리 입력
+			pageVO.setSearchCategory(searchCategory);
+			pageVO.setSearchKeyword(searchKeyword);
+			
 			// 페이징을 위한 페이지 정보 계산
-			pageVO = noticeServiceImpl.noticePaging(curPage);
+			pageVO = noticeServiceImpl.noticePaging(curPage, pageVO);
 			System.out.println("pageVO : "+pageVO.toString());
 			
 			// 게시판 리스트
